@@ -1,0 +1,3860 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.553">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Samuel Merk, Sarah Bez">
+
+<title>First analysis reading gains</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="First analysis reading gains_files/libs/clipboard/clipboard.min.js"></script>
+<script src="First analysis reading gains_files/libs/quarto-html/quarto.js"></script>
+<script src="First analysis reading gains_files/libs/quarto-html/popper.min.js"></script>
+<script src="First analysis reading gains_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="First analysis reading gains_files/libs/quarto-html/anchor.min.js"></script>
+<link href="First analysis reading gains_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="First analysis reading gains_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="First analysis reading gains_files/libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="First analysis reading gains_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="First analysis reading gains_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="First analysis reading gains_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="First analysis reading gains_files/libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="First analysis reading gains_files/libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="First analysis reading gains_files/libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="First analysis reading gains_files/libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+
+
+</head>
+
+<body>
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#variables" id="toc-variables" class="nav-link active" data-scroll-target="#variables">Variables</a></li>
+  <li><a href="#overview" id="toc-overview" class="nav-link" data-scroll-target="#overview">Overview</a>
+  <ul class="collapse">
+  <li><a href="#kohorte-1-ma-und-ka" id="toc-kohorte-1-ma-und-ka" class="nav-link" data-scroll-target="#kohorte-1-ma-und-ka">Kohorte 1 MA und KA</a>
+  <ul class="collapse">
+  <li><a href="#descriptive-overview" id="toc-descriptive-overview" class="nav-link" data-scroll-target="#descriptive-overview">Descriptive Overview</a></li>
+  <li><a href="#demographics" id="toc-demographics" class="nav-link" data-scroll-target="#demographics">Demographics</a></li>
+  </ul></li>
+  <li><a href="#kohorte-2-ka" id="toc-kohorte-2-ka" class="nav-link" data-scroll-target="#kohorte-2-ka">Kohorte 2 KA</a>
+  <ul class="collapse">
+  <li><a href="#descriptive-overview-1" id="toc-descriptive-overview-1" class="nav-link" data-scroll-target="#descriptive-overview-1">Descriptive overview</a></li>
+  <li><a href="#demographics-1" id="toc-demographics-1" class="nav-link" data-scroll-target="#demographics-1">Demographics</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#retestcorrelations" id="toc-retestcorrelations" class="nav-link" data-scroll-target="#retestcorrelations">Retestcorrelations</a>
+  <ul class="collapse">
+  <li><a href="#retestcorrelations-k1" id="toc-retestcorrelations-k1" class="nav-link" data-scroll-target="#retestcorrelations-k1">Retestcorrelations k1</a></li>
+  <li><a href="#retestcorrelations-k2-ka" id="toc-retestcorrelations-k2-ka" class="nav-link" data-scroll-target="#retestcorrelations-k2-ka">Retestcorrelations k2 KA</a></li>
+  </ul></li>
+  <li><a href="#all-data-except-k2-ma" id="toc-all-data-except-k2-ma" class="nav-link" data-scroll-target="#all-data-except-k2-ma">All data (except k2 MA)</a>
+  <ul class="collapse">
+  <li><a href="#demographics-2" id="toc-demographics-2" class="nav-link" data-scroll-target="#demographics-2">Demographics</a></li>
+  <li><a href="#missingness" id="toc-missingness" class="nav-link" data-scroll-target="#missingness">Missingness</a>
+  <ul class="collapse">
+  <li><a href="#plotting-missingness" id="toc-plotting-missingness" class="nav-link" data-scroll-target="#plotting-missingness">Plotting Missingness</a></li>
+  </ul></li>
+  <li><a href="#differences-in-gain" id="toc-differences-in-gain" class="nav-link" data-scroll-target="#differences-in-gain">Differences in gain</a>
+  <ul class="collapse">
+  <li><a href="#data-wrangling" id="toc-data-wrangling" class="nav-link" data-scroll-target="#data-wrangling">Data Wrangling</a></li>
+  <li><a href="#plotting" id="toc-plotting" class="nav-link" data-scroll-target="#plotting">Plotting</a></li>
+  </ul></li>
+  <li><a href="#linear-regression-single-level" id="toc-linear-regression-single-level" class="nav-link" data-scroll-target="#linear-regression-single-level">Linear Regression (single level)</a></li>
+  </ul></li>
+  </ul>
+</nav>
+</div>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">First analysis reading gains</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Samuel Merk, Sarah Bez </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="variables" class="level2">
+<h2 class="anchored" data-anchor-id="variables">Variables</h2>
+<ul>
+<li>pid = pseudonym kind</li>
+<li>elfe_pre = Elfe score prä</li>
+<li>elfe_post = elfe score post</li>
+<li>treat = Variable für treatment, 0 = kein t, 1 = treatment</li>
+<li>treat_drop = Variable für dropout oder späteres Hinzukommen beim treatment, 0 = nein, 1 = ja</li>
+</ul>
+</section>
+<section id="overview" class="level1">
+<h1>Overview</h1>
+<section id="kohorte-1-ma-und-ka" class="level2">
+<h2 class="anchored" data-anchor-id="kohorte-1-ma-und-ka">Kohorte 1 MA und KA</h2>
+<section id="descriptive-overview" class="level3">
+<h3 class="anchored" data-anchor-id="descriptive-overview">Descriptive Overview</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(skimr)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggforce)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(hrbrthemes)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(MatchThem)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mice)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(cobalt)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(naniar)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(patchwork)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(brms)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(bayesplot)</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(bayestestR)</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sjPlot)</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>data_k1 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/data_ELFE_KA_k1.csv"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">column_to_rownames</span>(<span class="st">"...1"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">dummy_foerderung =</span> <span class="fu">as.factor</span>(treat),</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>         <span class="at">school =</span> <span class="fu">as.factor</span>(<span class="fu">substr</span>(pid, <span class="dv">1</span>, <span class="dv">1</span>)),</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>         <span class="at">class =</span> <span class="fu">as.factor</span>(<span class="fu">substr</span>(pid, <span class="dv">1</span>, <span class="dv">2</span>)),</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>         <span class="at">gender_pre =</span> <span class="fu">as.factor</span>(gender_pre),</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>         <span class="at">migration_pre =</span> <span class="fu">as.factor</span>(migration_pre),</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>         <span class="at">language_pre =</span> <span class="fu">as.factor</span>(language_pre),</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>         <span class="at">uni =</span> <span class="st">"KA"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">elfe_t_pre =</span> elfe_pre,</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>         <span class="at">elfe_t_post =</span> elfe_post) <span class="sc">|&gt;</span> </span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as_tibble</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">full_join</span>(</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>    <span class="fu">read_csv</span>(<span class="st">"data/data_ELFE_MA_k1.csv"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">column_to_rownames</span>(<span class="st">"...1"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">dummy_foerderung =</span> <span class="fu">as.factor</span>(dummy_foerderung),</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>         <span class="at">school =</span> <span class="fu">as.factor</span>(<span class="fu">substr</span>(pid, <span class="dv">1</span>, <span class="dv">3</span>)),</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>         <span class="at">class =</span> <span class="fu">as.factor</span>(<span class="fu">substr</span>(pid, <span class="dv">1</span>, <span class="dv">5</span>)),</span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>         <span class="at">gender_pre =</span> <span class="fu">as.factor</span>(gender_pre),</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>         <span class="at">migration_pre =</span> <span class="fu">as.factor</span>(migration_pre),</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>         <span class="at">language_pre =</span> <span class="fu">as.factor</span>(language_pre),</span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>        <span class="co">#elfe_t_pre = elfe_pre,</span></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>         <span class="co">#elfe_t_post = elfe_post,</span></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>         <span class="at">pid =</span> <span class="fu">as.character</span>(pid),</span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>         <span class="at">uni =</span> <span class="st">"MA"</span>,</span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>         <span class="at">klassenstufe =</span> <span class="fu">case_when</span>(class <span class="sc">==</span> <span class="dv">60011</span> <span class="sc">~</span> <span class="dv">3</span>, <span class="co"># to avoid missings in _pre und _post</span></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>                                       class <span class="sc">==</span> <span class="dv">60012</span> <span class="sc">~</span> <span class="dv">2</span>, </span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>                                       class <span class="sc">==</span> <span class="dv">60111</span> <span class="sc">~</span> <span class="dv">4</span>, </span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>                                       class <span class="sc">==</span> <span class="dv">60112</span> <span class="sc">~</span> <span class="dv">4</span>, </span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>                                       class <span class="sc">==</span> <span class="dv">60211</span> <span class="sc">~</span> <span class="dv">3</span>, </span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>                                       class <span class="sc">==</span> <span class="dv">60212</span> <span class="sc">~</span> <span class="dv">3</span>))<span class="sc">%&gt;%</span></span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>      <span class="fu">select</span>(<span class="sc">-</span>klassenstufe_post)<span class="sc">%&gt;%</span></span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>      <span class="fu">select</span>(<span class="sc">-</span>klassenstufe.y)<span class="sc">%&gt;%</span></span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(<span class="sc">-</span>klassenstufe.x)<span class="sc">%&gt;%</span></span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>    <span class="fu">as_tibble</span>()</span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a><span class="fu">skim</span>(data_k1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="table table-sm table-striped small">
+<caption>Data summary</caption>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Name</td>
+<td style="text-align: left;">data_k1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Number of rows</td>
+<td style="text-align: left;">280</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Number of columns</td>
+<td style="text-align: left;">44</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">_______________________</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Column type frequency:</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">character</td>
+<td style="text-align: left;">2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">factor</td>
+<td style="text-align: left;">6</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">numeric</td>
+<td style="text-align: left;">36</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">________________________</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Group variables</td>
+<td style="text-align: left;">None</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variable type: character</strong></p>
+<table class="table table-sm table-striped small">
+<colgroup>
+<col style="width: 19%">
+<col style="width: 13%">
+<col style="width: 19%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 8%">
+<col style="width: 12%">
+<col style="width: 15%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">skim_variable</th>
+<th style="text-align: right;">n_missing</th>
+<th style="text-align: right;">complete_rate</th>
+<th style="text-align: right;">min</th>
+<th style="text-align: right;">max</th>
+<th style="text-align: right;">empty</th>
+<th style="text-align: right;">n_unique</th>
+<th style="text-align: right;">whitespace</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">pid</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">280</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">uni</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variable type: factor</strong></p>
+<table class="table table-sm table-striped small">
+<colgroup>
+<col style="width: 18%">
+<col style="width: 10%">
+<col style="width: 15%">
+<col style="width: 8%">
+<col style="width: 9%">
+<col style="width: 36%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">skim_variable</th>
+<th style="text-align: right;">n_missing</th>
+<th style="text-align: right;">complete_rate</th>
+<th style="text-align: left;">ordered</th>
+<th style="text-align: right;">n_unique</th>
+<th style="text-align: left;">top_counts</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">migration_pre</td>
+<td style="text-align: right;">22</td>
+<td style="text-align: right;">0.92</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">1: 134, 3: 88, 2: 36</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">language_pre</td>
+<td style="text-align: right;">22</td>
+<td style="text-align: right;">0.92</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">1: 142, 2: 90, 3: 26</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">gender_pre</td>
+<td style="text-align: right;">22</td>
+<td style="text-align: right;">0.92</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: left;">2: 143, 1: 113, 4: 1, 3: 1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">dummy_foerderung</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">0: 214, 1: 66</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">school</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: left;">d: 73, 600: 41, 601: 38, 602: 35</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">class</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: right;">16</td>
+<td style="text-align: left;">c1: 22, 600: 21, 601: 21, d4: 20</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variable type: numeric</strong></p>
+<table class="table table-sm table-striped small">
+<colgroup>
+<col style="width: 21%">
+<col style="width: 11%">
+<col style="width: 16%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 3%">
+<col style="width: 7%">
+<col style="width: 5%">
+<col style="width: 7%">
+<col style="width: 5%">
+<col style="width: 7%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">skim_variable</th>
+<th style="text-align: right;">n_missing</th>
+<th style="text-align: right;">complete_rate</th>
+<th style="text-align: right;">mean</th>
+<th style="text-align: right;">sd</th>
+<th style="text-align: right;">p0</th>
+<th style="text-align: right;">p25</th>
+<th style="text-align: right;">p50</th>
+<th style="text-align: right;">p75</th>
+<th style="text-align: right;">p100</th>
+<th style="text-align: left;">hist</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">treat</td>
+<td style="text-align: right;">114</td>
+<td style="text-align: right;">0.59</td>
+<td style="text-align: right;">0.26</td>
+<td style="text-align: right;">0.44</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.00</td>
+<td style="text-align: right;">0.0</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">▇▁▁▁▃</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">treat_drop</td>
+<td style="text-align: right;">114</td>
+<td style="text-align: right;">0.59</td>
+<td style="text-align: right;">0.11</td>
+<td style="text-align: right;">0.32</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.00</td>
+<td style="text-align: right;">0.0</td>
+<td style="text-align: right;">0.00</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">▇▁▁▁▁</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">age_pre</td>
+<td style="text-align: right;">25</td>
+<td style="text-align: right;">0.91</td>
+<td style="text-align: right;">9.02</td>
+<td style="text-align: right;">7.66</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">8.00</td>
+<td style="text-align: right;">8.0</td>
+<td style="text-align: right;">9.00</td>
+<td style="text-align: right;">99</td>
+<td style="text-align: left;">▇▁▁▁▁</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">wv_cor_t_pre</td>
+<td style="text-align: right;">16</td>
+<td style="text-align: right;">0.94</td>
+<td style="text-align: right;">46.05</td>
+<td style="text-align: right;">9.47</td>
+<td style="text-align: right;">25</td>
+<td style="text-align: right;">40.00</td>
+<td style="text-align: right;">46.0</td>
+<td style="text-align: right;">52.25</td>
+<td style="text-align: right;">74</td>
+<td style="text-align: left;">▂▆▇▃▁</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">wv_speed_t_pre</td>
+<td style="text-align: right;">16</td>
+<td style="text-align: right;">0.94</td>
+<td style="text-align: right;">45.72</td>
+<td style="text-align: right;">9.46</td>
+<td style="text-align: right;">25</td>
+<td style="text-align: right;">39.00</td>
+<td style="text-align: right;">46.0</td>
+<td style="text-align: right;">52.00</td>
+<td style="text-align: right;">75</td>
+<td style="text-align: left;">▃▆▇▂▁</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">wv_sum_done_pre</td>
+<td style="text-align: right;">16</td>
+<td style="text-align: right;">0.94</td>
+<td style="text-align: right;">35.50</td>
+<td style="text-align: right;">11.66</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">27.00</td>
+<td style="text-align: right;">36.0</td>
+<td style="text-align: right;">43.25</td>
+<td style="text-align: right;">74</td>
+<td style="text-align: left;">▁▅▇▃▁</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">wv_sum_score_pre</td>
+<td style="text-align: right;">16</td>
+<td style="text-align: right;">0.94</td>
+<td style="text-align: right;">34.69</td>
+<td style="text-align: right;">11.83</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">26.00</td>
+<td style="text-align: right;">34.5</td>
+<td style="text-align: right;">43.00</td>
+<td style="text-align: right;">68</td>
+<td style="text-align: left;">▁▅▇▆▁</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">sv_cor_t_pre</td>
+<td style="text-align: right;">16</td>
+<td style="text-align: right;">0.94</td>
+<td style="text-align: right;">44.79</td>
+<td style="text-align: right;">10.03</td>
+<td style="text-align: right;">25</td>
+<td style="text-align: right;">38.00</td>
+<td style="text-align: right;">46.0</td>
+<td style="text-align: right;">53.00</td>
+<td style="text-align: right;">70</td>
+<td style="text-align: left;">▃▇▇▆▁</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">sv_speed_t_pre</td>
+<td style="text-align: right;">16</td>
+<td style="text-align: right;">0.94</td>
+<td style="text-align: right;">44.47</td>
+<td style="text-align: right;">9.49</td>
+<td style="text-align: right;">25</td>
+<td style="text-align: right;">38.00</td>
+<td style="text-align: right;">45.0</td>
+<td style="text-align: right;">51.25</td>
+<td style="text-align: right;">68</td>
+<td style="text-align: left;">▃▇▇▇▁</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">sv_sum_done_pre</td>
+<td style="text-align: right;">16</td>
+<td style="text-align: right;">0.94</td>
+<td style="text-align: right;">14.25</td>
+<td style="text-align: right;">6.32</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">10.00</td>
+<td style="text-align: right;">14.0</td>
+<td style="text-align: right;">20.00</td>
+<td style="text-align: right;">27</td>
+<td style="text-align: left;">▂▅▇▆▃</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">sv_sum_score_pre</td>
+<td style="text-align: right;">16</td>
+<td style="text-align: right;">0.94</td>
+<td style="text-align: right;">13.45</td>
+<td style="text-align: right;">6.73</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">9.00</td>
+<td style="text-align: right;">14.0</td>
+<td style="text-align: right;">19.00</td>
+<td style="text-align: right;">27</td>
+<td style="text-align: left;">▃▅▇▆▃</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">tv_cor_t_pre</td>
+<td style="text-align: right;">16</td>
+<td style="text-align: right;">0.94</td>
+<td style="text-align: right;">40.19</td>
+<td style="text-align: right;">6.42</td>
+<td style="text-align: right;">25</td>
+<td style="text-align: right;">38.00</td>
+<td style="text-align: right;">41.0</td>
+<td style="text-align: right;">43.00</td>
+<td style="text-align: right;">69</td>
+<td style="text-align: left;">▂▇▆▁▁</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">tv_speed_t_pre</td>
+<td style="text-align: right;">16</td>
+<td style="text-align: right;">0.94</td>
+<td style="text-align: right;">45.53</td>
+<td style="text-align: right;">9.14</td>
+<td style="text-align: right;">25</td>
+<td style="text-align: right;">40.00</td>
+<td style="text-align: right;">46.0</td>
+<td style="text-align: right;">51.00</td>
+<td style="text-align: right;">69</td>
+<td style="text-align: left;">▂▆▇▃▁</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">tv_sum_done_pre</td>
+<td style="text-align: right;">16</td>
+<td style="text-align: right;">0.94</td>
+<td style="text-align: right;">11.51</td>
+<td style="text-align: right;">5.37</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">8.00</td>
+<td style="text-align: right;">12.0</td>
+<td style="text-align: right;">15.00</td>
+<td style="text-align: right;">26</td>
+<td style="text-align: left;">▂▇▇▅▂</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">tv_sum_score_pre</td>
+<td style="text-align: right;">16</td>
+<td style="text-align: right;">0.94</td>
+<td style="text-align: right;">5.91</td>
+<td style="text-align: right;">2.73</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">4.00</td>
+<td style="text-align: right;">6.0</td>
+<td style="text-align: right;">8.00</td>
+<td style="text-align: right;">20</td>
+<td style="text-align: left;">▃▇▂▁▁</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">elfe_t_pre</td>
+<td style="text-align: right;">16</td>
+<td style="text-align: right;">0.94</td>
+<td style="text-align: right;">42.89</td>
+<td style="text-align: right;">8.33</td>
+<td style="text-align: right;">25</td>
+<td style="text-align: right;">38.00</td>
+<td style="text-align: right;">43.0</td>
+<td style="text-align: right;">48.00</td>
+<td style="text-align: right;">66</td>
+<td style="text-align: left;">▃▅▇▃▁</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">ges_invalid_pre</td>
+<td style="text-align: right;">16</td>
+<td style="text-align: right;">0.94</td>
+<td style="text-align: right;">0.02</td>
+<td style="text-align: right;">0.15</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.00</td>
+<td style="text-align: right;">0.0</td>
+<td style="text-align: right;">0.00</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">▇▁▁▁▁</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">age_post</td>
+<td style="text-align: right;">48</td>
+<td style="text-align: right;">0.83</td>
+<td style="text-align: right;">9.03</td>
+<td style="text-align: right;">0.91</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">9.00</td>
+<td style="text-align: right;">9.0</td>
+<td style="text-align: right;">9.00</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: left;">▁▁▁▇▂</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">migration_post</td>
+<td style="text-align: right;">38</td>
+<td style="text-align: right;">0.86</td>
+<td style="text-align: right;">1.82</td>
+<td style="text-align: right;">0.91</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: right;">1.0</td>
+<td style="text-align: right;">3.00</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">▇▁▂▁▅</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">language_post</td>
+<td style="text-align: right;">33</td>
+<td style="text-align: right;">0.88</td>
+<td style="text-align: right;">1.58</td>
+<td style="text-align: right;">0.69</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: right;">1.0</td>
+<td style="text-align: right;">2.00</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">▇▁▆▁▂</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">gender_post</td>
+<td style="text-align: right;">37</td>
+<td style="text-align: right;">0.87</td>
+<td style="text-align: right;">1.64</td>
+<td style="text-align: right;">0.58</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: right;">2.0</td>
+<td style="text-align: right;">2.00</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: left;">▆▇▁▁▁</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">wv_cor_t_post</td>
+<td style="text-align: right;">28</td>
+<td style="text-align: right;">0.90</td>
+<td style="text-align: right;">48.23</td>
+<td style="text-align: right;">9.21</td>
+<td style="text-align: right;">25</td>
+<td style="text-align: right;">42.75</td>
+<td style="text-align: right;">48.0</td>
+<td style="text-align: right;">53.00</td>
+<td style="text-align: right;">75</td>
+<td style="text-align: left;">▂▅▇▂▁</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">wv_speed_t_post</td>
+<td style="text-align: right;">28</td>
+<td style="text-align: right;">0.90</td>
+<td style="text-align: right;">48.30</td>
+<td style="text-align: right;">9.11</td>
+<td style="text-align: right;">25</td>
+<td style="text-align: right;">43.00</td>
+<td style="text-align: right;">49.0</td>
+<td style="text-align: right;">53.00</td>
+<td style="text-align: right;">75</td>
+<td style="text-align: left;">▁▆▇▃▁</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">wv_sum_done_post</td>
+<td style="text-align: right;">28</td>
+<td style="text-align: right;">0.90</td>
+<td style="text-align: right;">44.76</td>
+<td style="text-align: right;">11.14</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: right;">38.00</td>
+<td style="text-align: right;">45.0</td>
+<td style="text-align: right;">51.00</td>
+<td style="text-align: right;">75</td>
+<td style="text-align: left;">▁▃▇▃▁</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">wv_sum_score_post</td>
+<td style="text-align: right;">28</td>
+<td style="text-align: right;">0.90</td>
+<td style="text-align: right;">43.92</td>
+<td style="text-align: right;">11.45</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">36.00</td>
+<td style="text-align: right;">45.0</td>
+<td style="text-align: right;">51.00</td>
+<td style="text-align: right;">74</td>
+<td style="text-align: left;">▁▂▇▅▁</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">sv_cor_t_post</td>
+<td style="text-align: right;">28</td>
+<td style="text-align: right;">0.90</td>
+<td style="text-align: right;">46.48</td>
+<td style="text-align: right;">9.85</td>
+<td style="text-align: right;">25</td>
+<td style="text-align: right;">41.00</td>
+<td style="text-align: right;">45.0</td>
+<td style="text-align: right;">53.00</td>
+<td style="text-align: right;">71</td>
+<td style="text-align: left;">▂▇▇▆▂</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">sv_speed_t_post</td>
+<td style="text-align: right;">28</td>
+<td style="text-align: right;">0.90</td>
+<td style="text-align: right;">46.65</td>
+<td style="text-align: right;">9.85</td>
+<td style="text-align: right;">25</td>
+<td style="text-align: right;">39.00</td>
+<td style="text-align: right;">45.0</td>
+<td style="text-align: right;">54.00</td>
+<td style="text-align: right;">75</td>
+<td style="text-align: left;">▂▇▆▃▁</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">sv_sum_done_post</td>
+<td style="text-align: right;">28</td>
+<td style="text-align: right;">0.90</td>
+<td style="text-align: right;">19.58</td>
+<td style="text-align: right;">6.60</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">15.00</td>
+<td style="text-align: right;">20.0</td>
+<td style="text-align: right;">25.00</td>
+<td style="text-align: right;">36</td>
+<td style="text-align: left;">▁▂▇▆▁</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">sv_sum_score_post</td>
+<td style="text-align: right;">28</td>
+<td style="text-align: right;">0.90</td>
+<td style="text-align: right;">18.63</td>
+<td style="text-align: right;">6.78</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">15.00</td>
+<td style="text-align: right;">19.0</td>
+<td style="text-align: right;">24.00</td>
+<td style="text-align: right;">34</td>
+<td style="text-align: left;">▁▂▇▆▂</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">tv_cor_t_post</td>
+<td style="text-align: right;">28</td>
+<td style="text-align: right;">0.90</td>
+<td style="text-align: right;">38.28</td>
+<td style="text-align: right;">5.67</td>
+<td style="text-align: right;">25</td>
+<td style="text-align: right;">36.00</td>
+<td style="text-align: right;">38.0</td>
+<td style="text-align: right;">42.00</td>
+<td style="text-align: right;">51</td>
+<td style="text-align: left;">▂▂▇▅▂</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">tv_speed_t_post</td>
+<td style="text-align: right;">28</td>
+<td style="text-align: right;">0.90</td>
+<td style="text-align: right;">46.68</td>
+<td style="text-align: right;">9.89</td>
+<td style="text-align: right;">25</td>
+<td style="text-align: right;">42.00</td>
+<td style="text-align: right;">47.0</td>
+<td style="text-align: right;">52.00</td>
+<td style="text-align: right;">67</td>
+<td style="text-align: left;">▂▂▇▃▂</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">tv_sum_done_post</td>
+<td style="text-align: right;">28</td>
+<td style="text-align: right;">0.90</td>
+<td style="text-align: right;">14.84</td>
+<td style="text-align: right;">5.93</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">12.00</td>
+<td style="text-align: right;">15.0</td>
+<td style="text-align: right;">18.00</td>
+<td style="text-align: right;">26</td>
+<td style="text-align: left;">▂▃▇▇▅</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">tv_sum_score_post</td>
+<td style="text-align: right;">28</td>
+<td style="text-align: right;">0.90</td>
+<td style="text-align: right;">7.25</td>
+<td style="text-align: right;">2.90</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">6.00</td>
+<td style="text-align: right;">8.0</td>
+<td style="text-align: right;">9.00</td>
+<td style="text-align: right;">14</td>
+<td style="text-align: left;">▂▃▇▆▁</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">elfe_t_post</td>
+<td style="text-align: right;">28</td>
+<td style="text-align: right;">0.90</td>
+<td style="text-align: right;">43.58</td>
+<td style="text-align: right;">7.94</td>
+<td style="text-align: right;">25</td>
+<td style="text-align: right;">39.00</td>
+<td style="text-align: right;">43.5</td>
+<td style="text-align: right;">49.25</td>
+<td style="text-align: right;">66</td>
+<td style="text-align: left;">▂▇▇▅▁</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">ges_invalid_post</td>
+<td style="text-align: right;">28</td>
+<td style="text-align: right;">0.90</td>
+<td style="text-align: right;">0.04</td>
+<td style="text-align: right;">0.20</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.00</td>
+<td style="text-align: right;">0.0</td>
+<td style="text-align: right;">0.00</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">▇▁▁▁▁</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">klassenstufe</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: right;">3.06</td>
+<td style="text-align: right;">0.45</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">3.00</td>
+<td style="text-align: right;">3.0</td>
+<td style="text-align: right;">3.00</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: left;">▁▁▇▁▂</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="demographics" class="level3">
+<h3 class="anchored" data-anchor-id="demographics">Demographics</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#classes</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>data_k1 <span class="sc">|&gt;</span> </span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(uni <span class="sc">==</span> <span class="st">"KA"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>(pid) <span class="sc">|&gt;</span> </span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">substr</span>(<span class="dv">1</span>,<span class="dv">2</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">table</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+a1 a2 b1 b2 c1 d1 d2 d3 d4 e1 
+17 16 16 12 22 18 18 17 20 10 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>data_k1 <span class="sc">|&gt;</span> </span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(uni <span class="sc">==</span> <span class="st">"MA"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>(pid) <span class="sc">|&gt;</span> </span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">substr</span>(<span class="dv">1</span>,<span class="dv">5</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">table</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+60011 60012 60111 60112 60211 60212 
+   21    20    17    21    19    16 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(data_k1<span class="sc">$</span>pid)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  [1] "a101"    "a102"    "a103"    "a104"    "a105"    "a106"    "a107"   
+  [8] "a108"    "a109"    "a110"    "a111"    "a112"    "a113"    "a114"   
+ [15] "a115"    "a116"    "a117"    "a201"    "a202"    "a203"    "a204"   
+ [22] "a205"    "a206"    "a207"    "a208"    "a209"    "a210"    "a211"   
+ [29] "a212"    "a213"    "a214"    "a215"    "a216"    "b101"    "b102"   
+ [36] "b103"    "b104"    "b105"    "b106"    "b107"    "b108"    "b109"   
+ [43] "b110"    "b111"    "b112"    "b113"    "b114"    "b115"    "b116"   
+ [50] "b201"    "b202"    "b203"    "b204"    "b205"    "b206"    "b207"   
+ [57] "b208"    "b209"    "b210"    "b211"    "b212"    "c101"    "c102"   
+ [64] "c103"    "c104"    "c105"    "c106"    "c107"    "c108"    "c109"   
+ [71] "c110"    "c111"    "c112"    "c113"    "c114"    "c115"    "c116"   
+ [78] "c117"    "c118"    "c119"    "c120"    "c121"    "c123"    "d101"   
+ [85] "d102"    "d103"    "d104"    "d105"    "d106"    "d107"    "d108"   
+ [92] "d109"    "d110"    "d111"    "d112"    "d113"    "d114"    "d115"   
+ [99] "d116"    "d117"    "d118"    "d201"    "d203"    "d204"    "d205"   
+[106] "d206"    "d207"    "d208"    "d210"    "d211"    "d212"    "d213"   
+[113] "d214"    "d215"    "d216"    "d217"    "d218"    "d219"    "d220"   
+[120] "d301"    "d302"    "d303"    "d304"    "d305"    "d306"    "d307"   
+[127] "d308"    "d309"    "d310"    "d311"    "d312"    "d313"    "d314"   
+[134] "d315"    "d316"    "d317"    "d401"    "d402"    "d403"    "d404"   
+[141] "d405"    "d406"    "d407"    "d408"    "d409"    "d410"    "d411"   
+[148] "d412"    "d413"    "d414"    "d415"    "d416"    "d417"    "d418"   
+[155] "d419"    "d420"    "e101"    "e102"    "e103"    "e104"    "e105"   
+[162] "e106"    "e108"    "e109"    "e110"    "e111"    "6001102" "6001103"
+[169] "6001106" "6001107" "6001108" "6001109" "6001110" "6001111" "6001112"
+[176] "6001113" "6001114" "6001115" "6001116" "6001117" "6001118" "6001119"
+[183] "6001120" "6001121" "6001122" "6001202" "6001203" "6001204" "6001206"
+[190] "6001208" "6001209" "6001210" "6001211" "6001212" "6001214" "6001215"
+[197] "6001218" "6001219" "6001220" "6001222" "6001223" "6001224" "6011103"
+[204] "6011104" "6011105" "6011106" "6011107" "6011108" "6011110" "6011113"
+[211] "6011114" "6011115" "6011116" "6011117" "6011118" "6011119" "6011120"
+[218] "6011202" "6011203" "6011204" "6011205" "6011206" "6011207" "6011208"
+[225] "6011209" "6011210" "6011211" "6011213" "6011214" "6011215" "6011216"
+[232] "6011217" "6011218" "6011219" "6021102" "6021104" "6021105" "6021107"
+[239] "6021108" "6021109" "6021110" "6021111" "6021112" "6021113" "6021114"
+[246] "6021116" "6021117" "6021118" "6021119" "6021120" "6021121" "6021202"
+[253] "6021203" "6021204" "6021205" "6021206" "6021208" "6021209" "6021210"
+[260] "6021211" "6021212" "6021213" "6021216" "6021218" "6021220" "6001101"
+[267] "6001201" "6011101" "6011201" "6021106" "6021201" "6001104" "6001207"
+[274] "6001216" "6011102" "6011212" "6011220" "6011221" "6021207" "6021101"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">as.numeric</span>(data_k1<span class="sc">$</span>dummy_foerderung) <span class="sc">-</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 66</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="kohorte-2-ka" class="level2">
+<h2 class="anchored" data-anchor-id="kohorte-2-ka">Kohorte 2 KA</h2>
+<section id="descriptive-overview-1" class="level3">
+<h3 class="anchored" data-anchor-id="descriptive-overview-1">Descriptive overview</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>data_k2_ka <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/data_ELFE_KA_k2.csv"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">column_to_rownames</span>(<span class="st">"...1"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">dummy_foerderung =</span> <span class="fu">as.factor</span>(treat),</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">school =</span> <span class="fu">as.factor</span>(<span class="fu">substr</span>(pid, <span class="dv">1</span>, <span class="dv">1</span>)),</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">class =</span> <span class="fu">as.factor</span>(<span class="fu">substr</span>(pid, <span class="dv">1</span>, <span class="dv">2</span>)),</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">gender_pre =</span> <span class="fu">as.factor</span>(gender_pre),</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>         <span class="at">migration_pre =</span> <span class="fu">as.factor</span>(migration_pre),</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>         <span class="at">language_pre =</span> <span class="fu">as.factor</span>(language_pre),</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>         <span class="at">uni =</span> <span class="st">"KA"</span>)<span class="sc">%&gt;%</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">elfe_t_pre =</span> elfe_pre,</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>         <span class="at">elfe_t_post =</span> elfe_post)<span class="sc">%&gt;%</span></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>Uni)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>New names:
+Rows: 169 Columns: 42
+── Column specification
+──────────────────────────────────────────────────────── Delimiter: "," chr
+(2): pid, Uni dbl (40): ...1, age_pre, migration_pre, language_pre, gender_pre,
+wv_cor_t_p...
+ℹ Use `spec()` to retrieve the full column specification for this data. ℹ
+Specify the column types or set `show_col_types = FALSE` to quiet this message.
+• `` -&gt; `...1`</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">skim</span>(data_k2_ka)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="table table-sm table-striped small">
+<caption>Data summary</caption>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Name</td>
+<td style="text-align: left;">data_k2_ka</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Number of rows</td>
+<td style="text-align: left;">169</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Number of columns</td>
+<td style="text-align: left;">44</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">_______________________</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Column type frequency:</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">character</td>
+<td style="text-align: left;">2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">factor</td>
+<td style="text-align: left;">6</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">numeric</td>
+<td style="text-align: left;">36</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">________________________</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Group variables</td>
+<td style="text-align: left;">None</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variable type: character</strong></p>
+<table class="table table-sm table-striped small">
+<colgroup>
+<col style="width: 19%">
+<col style="width: 13%">
+<col style="width: 19%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 8%">
+<col style="width: 12%">
+<col style="width: 15%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">skim_variable</th>
+<th style="text-align: right;">n_missing</th>
+<th style="text-align: right;">complete_rate</th>
+<th style="text-align: right;">min</th>
+<th style="text-align: right;">max</th>
+<th style="text-align: right;">empty</th>
+<th style="text-align: right;">n_unique</th>
+<th style="text-align: right;">whitespace</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">pid</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">169</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">uni</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variable type: factor</strong></p>
+<table class="table table-sm table-striped small">
+<colgroup>
+<col style="width: 19%">
+<col style="width: 11%">
+<col style="width: 15%">
+<col style="width: 8%">
+<col style="width: 10%">
+<col style="width: 34%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">skim_variable</th>
+<th style="text-align: right;">n_missing</th>
+<th style="text-align: right;">complete_rate</th>
+<th style="text-align: left;">ordered</th>
+<th style="text-align: right;">n_unique</th>
+<th style="text-align: left;">top_counts</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">migration_pre</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">0.93</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">1: 79, 3: 46, 2: 32</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">language_pre</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">0.93</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">1: 81, 2: 58, 3: 18</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">gender_pre</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">0.95</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: left;">1: 81, 2: 75, 4: 3, 3: 1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">dummy_foerderung</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">0: 134, 1: 35</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">school</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: left;">d: 77, c: 42, a: 33, e: 17</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">class</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: left;">c3: 22, d5: 22, c2: 20, d6: 19</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variable type: numeric</strong></p>
+<table class="table table-sm table-striped small">
+<colgroup>
+<col style="width: 21%">
+<col style="width: 12%">
+<col style="width: 17%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 3%">
+<col style="width: 6%">
+<col style="width: 4%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 7%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">skim_variable</th>
+<th style="text-align: right;">n_missing</th>
+<th style="text-align: right;">complete_rate</th>
+<th style="text-align: right;">mean</th>
+<th style="text-align: right;">sd</th>
+<th style="text-align: right;">p0</th>
+<th style="text-align: right;">p25</th>
+<th style="text-align: right;">p50</th>
+<th style="text-align: right;">p75</th>
+<th style="text-align: right;">p100</th>
+<th style="text-align: left;">hist</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">age_pre</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">0.96</td>
+<td style="text-align: right;">8.33</td>
+<td style="text-align: right;">0.56</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">8.0</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">9.0</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: left;">▁▇▁▃▁</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">wv_cor_t_pre</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">0.96</td>
+<td style="text-align: right;">48.39</td>
+<td style="text-align: right;">8.68</td>
+<td style="text-align: right;">25</td>
+<td style="text-align: right;">42.0</td>
+<td style="text-align: right;">49</td>
+<td style="text-align: right;">55.0</td>
+<td style="text-align: right;">69</td>
+<td style="text-align: left;">▁▅▇▆▂</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">wv_speed_t_pre</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">0.96</td>
+<td style="text-align: right;">48.20</td>
+<td style="text-align: right;">8.83</td>
+<td style="text-align: right;">25</td>
+<td style="text-align: right;">43.0</td>
+<td style="text-align: right;">48</td>
+<td style="text-align: right;">54.5</td>
+<td style="text-align: right;">68</td>
+<td style="text-align: left;">▁▅▇▇▂</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">wv_sum_done_pre</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">0.96</td>
+<td style="text-align: right;">37.91</td>
+<td style="text-align: right;">9.78</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">32.0</td>
+<td style="text-align: right;">38</td>
+<td style="text-align: right;">44.5</td>
+<td style="text-align: right;">61</td>
+<td style="text-align: left;">▁▃▇▇▂</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">wv_sum_score_pre</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">0.96</td>
+<td style="text-align: right;">37.01</td>
+<td style="text-align: right;">9.97</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">30.0</td>
+<td style="text-align: right;">37</td>
+<td style="text-align: right;">44.0</td>
+<td style="text-align: right;">61</td>
+<td style="text-align: left;">▁▅▇▇▂</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">sv_cor_t_pre</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">0.96</td>
+<td style="text-align: right;">46.34</td>
+<td style="text-align: right;">10.37</td>
+<td style="text-align: right;">25</td>
+<td style="text-align: right;">38.0</td>
+<td style="text-align: right;">46</td>
+<td style="text-align: right;">54.0</td>
+<td style="text-align: right;">71</td>
+<td style="text-align: left;">▃▇▇▆▂</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">sv_speed_t_pre</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">0.96</td>
+<td style="text-align: right;">45.76</td>
+<td style="text-align: right;">9.89</td>
+<td style="text-align: right;">26</td>
+<td style="text-align: right;">38.0</td>
+<td style="text-align: right;">45</td>
+<td style="text-align: right;">54.0</td>
+<td style="text-align: right;">70</td>
+<td style="text-align: left;">▃▇▇▆▂</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">sv_sum_done_pre</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">0.96</td>
+<td style="text-align: right;">14.83</td>
+<td style="text-align: right;">5.96</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">10.0</td>
+<td style="text-align: right;">14</td>
+<td style="text-align: right;">20.0</td>
+<td style="text-align: right;">30</td>
+<td style="text-align: left;">▃▇▇▅▂</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">sv_sum_score_pre</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">0.96</td>
+<td style="text-align: right;">14.12</td>
+<td style="text-align: right;">6.37</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">9.0</td>
+<td style="text-align: right;">14</td>
+<td style="text-align: right;">19.0</td>
+<td style="text-align: right;">30</td>
+<td style="text-align: left;">▃▇▇▆▂</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">tv_cor_t_pre</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">0.96</td>
+<td style="text-align: right;">41.76</td>
+<td style="text-align: right;">5.62</td>
+<td style="text-align: right;">25</td>
+<td style="text-align: right;">39.0</td>
+<td style="text-align: right;">41</td>
+<td style="text-align: right;">46.0</td>
+<td style="text-align: right;">54</td>
+<td style="text-align: left;">▁▅▆▇▂</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">tv_speed_t_pre</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">0.96</td>
+<td style="text-align: right;">47.91</td>
+<td style="text-align: right;">7.93</td>
+<td style="text-align: right;">25</td>
+<td style="text-align: right;">42.0</td>
+<td style="text-align: right;">47</td>
+<td style="text-align: right;">54.0</td>
+<td style="text-align: right;">68</td>
+<td style="text-align: left;">▁▅▇▇▁</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">tv_sum_done_pre</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">0.96</td>
+<td style="text-align: right;">12.66</td>
+<td style="text-align: right;">4.52</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">9.0</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">16.0</td>
+<td style="text-align: right;">25</td>
+<td style="text-align: left;">▂▇▇▅▁</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">tv_sum_score_pre</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">0.96</td>
+<td style="text-align: right;">6.40</td>
+<td style="text-align: right;">2.32</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">5.0</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">8.0</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: left;">▃▇▇▇▂</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">elfe_t_pre</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">0.96</td>
+<td style="text-align: right;">44.89</td>
+<td style="text-align: right;">8.48</td>
+<td style="text-align: right;">25</td>
+<td style="text-align: right;">39.0</td>
+<td style="text-align: right;">44</td>
+<td style="text-align: right;">51.0</td>
+<td style="text-align: right;">66</td>
+<td style="text-align: left;">▂▇▇▆▂</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">ges_invalid_pre</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">0.96</td>
+<td style="text-align: right;">0.00</td>
+<td style="text-align: right;">0.00</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">▁▁▇▁▁</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">age_post</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">0.94</td>
+<td style="text-align: right;">9.07</td>
+<td style="text-align: right;">0.52</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">9.0</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">9.0</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: left;">▁▇▁▂▁</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">migration_post</td>
+<td style="text-align: right;">13</td>
+<td style="text-align: right;">0.92</td>
+<td style="text-align: right;">1.80</td>
+<td style="text-align: right;">0.84</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1.0</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">3.0</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">▇▁▅▁▅</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">language_post</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">0.93</td>
+<td style="text-align: right;">1.59</td>
+<td style="text-align: right;">0.70</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1.0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2.0</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">▇▁▅▁▂</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">gender_post</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">0.93</td>
+<td style="text-align: right;">1.52</td>
+<td style="text-align: right;">0.54</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1.0</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2.0</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: left;">▇▇▁▁▁</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">wv_cor_t_post</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">0.94</td>
+<td style="text-align: right;">51.21</td>
+<td style="text-align: right;">7.91</td>
+<td style="text-align: right;">25</td>
+<td style="text-align: right;">47.0</td>
+<td style="text-align: right;">51</td>
+<td style="text-align: right;">56.5</td>
+<td style="text-align: right;">71</td>
+<td style="text-align: left;">▁▃▇▇▂</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">wv_speed_t_post</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">0.94</td>
+<td style="text-align: right;">51.11</td>
+<td style="text-align: right;">8.02</td>
+<td style="text-align: right;">25</td>
+<td style="text-align: right;">46.0</td>
+<td style="text-align: right;">51</td>
+<td style="text-align: right;">56.0</td>
+<td style="text-align: right;">71</td>
+<td style="text-align: left;">▁▃▇▆▂</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">wv_sum_done_post</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">0.94</td>
+<td style="text-align: right;">47.74</td>
+<td style="text-align: right;">9.29</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">42.0</td>
+<td style="text-align: right;">48</td>
+<td style="text-align: right;">54.0</td>
+<td style="text-align: right;">70</td>
+<td style="text-align: left;">▁▂▆▇▂</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">wv_sum_score_post</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">0.94</td>
+<td style="text-align: right;">47.18</td>
+<td style="text-align: right;">9.43</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: right;">42.0</td>
+<td style="text-align: right;">47</td>
+<td style="text-align: right;">53.5</td>
+<td style="text-align: right;">70</td>
+<td style="text-align: left;">▁▂▆▇▂</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">sv_cor_t_post</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">0.94</td>
+<td style="text-align: right;">49.14</td>
+<td style="text-align: right;">9.51</td>
+<td style="text-align: right;">27</td>
+<td style="text-align: right;">42.0</td>
+<td style="text-align: right;">48</td>
+<td style="text-align: right;">57.0</td>
+<td style="text-align: right;">75</td>
+<td style="text-align: left;">▃▇▇▆▁</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">sv_speed_t_post</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">0.94</td>
+<td style="text-align: right;">48.96</td>
+<td style="text-align: right;">9.10</td>
+<td style="text-align: right;">28</td>
+<td style="text-align: right;">43.0</td>
+<td style="text-align: right;">49</td>
+<td style="text-align: right;">55.0</td>
+<td style="text-align: right;">75</td>
+<td style="text-align: left;">▂▇▇▆▁</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">sv_sum_done_post</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">0.94</td>
+<td style="text-align: right;">20.97</td>
+<td style="text-align: right;">5.65</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">17.5</td>
+<td style="text-align: right;">21</td>
+<td style="text-align: right;">25.0</td>
+<td style="text-align: right;">36</td>
+<td style="text-align: left;">▂▆▇▇▁</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">sv_sum_score_post</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">0.94</td>
+<td style="text-align: right;">20.22</td>
+<td style="text-align: right;">5.99</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">16.0</td>
+<td style="text-align: right;">20</td>
+<td style="text-align: right;">25.0</td>
+<td style="text-align: right;">36</td>
+<td style="text-align: left;">▂▅▇▇▁</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">tv_cor_t_post</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">0.94</td>
+<td style="text-align: right;">40.83</td>
+<td style="text-align: right;">5.36</td>
+<td style="text-align: right;">25</td>
+<td style="text-align: right;">38.0</td>
+<td style="text-align: right;">42</td>
+<td style="text-align: right;">44.0</td>
+<td style="text-align: right;">51</td>
+<td style="text-align: left;">▁▂▇▇▅</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">tv_speed_t_post</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">0.94</td>
+<td style="text-align: right;">49.99</td>
+<td style="text-align: right;">9.04</td>
+<td style="text-align: right;">25</td>
+<td style="text-align: right;">45.0</td>
+<td style="text-align: right;">50</td>
+<td style="text-align: right;">57.0</td>
+<td style="text-align: right;">67</td>
+<td style="text-align: left;">▁▁▇▅▃</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">tv_sum_done_post</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">0.94</td>
+<td style="text-align: right;">16.84</td>
+<td style="text-align: right;">5.00</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">14.0</td>
+<td style="text-align: right;">17</td>
+<td style="text-align: right;">21.0</td>
+<td style="text-align: right;">26</td>
+<td style="text-align: left;">▁▂▆▇▆</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">tv_sum_score_post</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">0.94</td>
+<td style="text-align: right;">8.44</td>
+<td style="text-align: right;">2.64</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">7.0</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">10.0</td>
+<td style="text-align: right;">14</td>
+<td style="text-align: left;">▁▂▆▇▂</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">elfe_t_post</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">0.94</td>
+<td style="text-align: right;">46.62</td>
+<td style="text-align: right;">7.82</td>
+<td style="text-align: right;">25</td>
+<td style="text-align: right;">42.0</td>
+<td style="text-align: right;">46</td>
+<td style="text-align: right;">53.0</td>
+<td style="text-align: right;">66</td>
+<td style="text-align: left;">▂▃▇▆▂</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">ges_invalid_post</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">0.94</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">0.08</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">▇▁▁▁▁</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">treat</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: right;">0.21</td>
+<td style="text-align: right;">0.41</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">▇▁▁▁▂</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">treat_drop</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: right;">0.02</td>
+<td style="text-align: right;">0.13</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">▇▁▁▁▁</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">klassenstufe</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: right;">3.00</td>
+<td style="text-align: right;">0.00</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">3.0</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">3.0</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">▁▁▇▁▁</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="demographics-1" class="level3">
+<h3 class="anchored" data-anchor-id="demographics-1">Demographics</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co">#classes</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>data_k2_ka <span class="sc">|&gt;</span> </span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(uni <span class="sc">==</span> <span class="st">"KA"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>(pid) <span class="sc">|&gt;</span> </span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">substr</span>(<span class="dv">1</span>,<span class="dv">2</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">table</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+a3 a4 c2 c3 d5 d6 d7 d8 e2 
+16 17 20 22 22 19 17 19 17 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(data_k2_ka<span class="sc">$</span>pid)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  [1] "a301" "a302" "a303" "a304" "a305" "a306" "a307" "a308" "a309" "a310"
+ [11] "a311" "a312" "a314" "a315" "a316" "a317" "a401" "a402" "a403" "a404"
+ [21] "a405" "a406" "a407" "a408" "a409" "a411" "a412" "a413" "a414" "a415"
+ [31] "a416" "a417" "c201" "c202" "c203" "c204" "c205" "c206" "c207" "c208"
+ [41] "c209" "c210" "c211" "c212" "c213" "c214" "c215" "c217" "c218" "c219"
+ [51] "c220" "c301" "c302" "c303" "c304" "c305" "c306" "c307" "c308" "c309"
+ [61] "c310" "c311" "c312" "c313" "c314" "c315" "c316" "c317" "c318" "c321"
+ [71] "c322" "d501" "d503" "d504" "d505" "d506" "d507" "d508" "d509" "d510"
+ [81] "d511" "d512" "d514" "d515" "d516" "d517" "d518" "d519" "d520" "d521"
+ [91] "d522" "d523" "d601" "d602" "d603" "d604" "d605" "d606" "d607" "d608"
+[101] "d611" "d612" "d613" "d615" "d616" "d617" "d618" "d619" "d620" "d621"
+[111] "d623" "d701" "d702" "d703" "d704" "d705" "d706" "d707" "d708" "d709"
+[121] "d710" "d711" "d712" "d713" "d714" "d715" "d716" "d717" "d801" "d802"
+[131] "d803" "d804" "d805" "d806" "d807" "d808" "d809" "d810" "d811" "d812"
+[141] "d814" "d815" "d816" "d817" "d818" "d819" "e201" "e202" "e203" "e204"
+[151] "e205" "e206" "e207" "e208" "e209" "e210" "e211" "e212" "e213" "e214"
+[161] "e215" "e216" "e217" "c216" "c319" "c320" "d513" "d813" "a418"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">as.numeric</span>(data_k2_ka<span class="sc">$</span>dummy_foerderung) <span class="sc">-</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 35</code></pre>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="retestcorrelations" class="level1">
+<h1>Retestcorrelations</h1>
+<section id="retestcorrelations-k1" class="level2">
+<h2 class="anchored" data-anchor-id="retestcorrelations-k1">Retestcorrelations k1</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(corrgram)</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">corrgram</span>(data_k1 <span class="sc">|&gt;</span> </span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>           <span class="fu">select</span>(elfe_t_pre, elfe_t_post,</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>                  tv_sum_score_pre, tv_sum_score_post,</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>                  sv_sum_score_pre, sv_sum_score_post, </span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>                  wv_sum_score_pre, wv_sum_score_post,</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>                  tv_speed_t_pre, tv_speed_t_post,</span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>                  sv_speed_t_pre, sv_speed_t_post,</span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>                  wv_speed_t_pre, wv_speed_t_post</span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>                  ),</span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>         <span class="at">upper.panel =</span> panel.pie,</span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a>         <span class="at">lower.panel =</span> panel.cor</span>
+<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><a href="First-analysis-reading-gains_files/figure-html/unnamed-chunk-5-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="First-analysis-reading-gains_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></a></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">corrgram</span>(data_k1 <span class="sc">|&gt;</span> </span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>           <span class="fu">filter</span>(uni <span class="sc">==</span> <span class="st">"KA"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>           <span class="fu">select</span>(elfe_t_pre, elfe_t_post,</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>                  tv_sum_score_pre, tv_sum_score_post,</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>                  sv_sum_score_pre, sv_sum_score_post, </span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>                  wv_sum_score_pre, wv_sum_score_post,</span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>                  tv_speed_t_pre, tv_speed_t_post,</span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>                  sv_speed_t_pre, sv_speed_t_post,</span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>                  wv_speed_t_pre, wv_speed_t_post</span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>                  ),</span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>         <span class="at">upper.panel =</span> panel.pie,</span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a>         <span class="at">lower.panel =</span> panel.cor</span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><a href="First-analysis-reading-gains_files/figure-html/unnamed-chunk-5-2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="First-analysis-reading-gains_files/figure-html/unnamed-chunk-5-2.png" class="img-fluid figure-img" width="672"></a></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">corrgram</span>(data_k1 <span class="sc">|&gt;</span> </span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>           <span class="fu">filter</span>(uni <span class="sc">==</span> <span class="st">"MA"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>           <span class="fu">select</span>(elfe_t_pre, elfe_t_post,</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>                  tv_sum_score_pre, tv_sum_score_post,</span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>                  sv_sum_score_pre, sv_sum_score_post, </span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>                  wv_sum_score_pre, wv_sum_score_post,</span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>                  tv_speed_t_pre, tv_speed_t_post,</span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>                  sv_speed_t_pre, sv_speed_t_post,</span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>                  wv_speed_t_pre, wv_speed_t_post</span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>                  ),</span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>         <span class="at">upper.panel =</span> panel.pie,</span>
+<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a>        <span class="at">lower.panel =</span> panel.cor</span>
+<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><a href="First-analysis-reading-gains_files/figure-html/unnamed-chunk-5-3.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="First-analysis-reading-gains_files/figure-html/unnamed-chunk-5-3.png" class="img-fluid figure-img" width="672"></a></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="retestcorrelations-k2-ka" class="level2">
+<h2 class="anchored" data-anchor-id="retestcorrelations-k2-ka">Retestcorrelations k2 KA</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(corrgram)</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">corrgram</span>(data_k2_ka <span class="sc">|&gt;</span> </span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>           <span class="fu">select</span>(elfe_t_pre, elfe_t_post,</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>                  tv_sum_score_pre, tv_sum_score_post,</span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>                  sv_sum_score_pre, sv_sum_score_post, </span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>                  wv_sum_score_pre, wv_sum_score_post,</span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>                  tv_speed_t_pre, tv_speed_t_post,</span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>                  sv_speed_t_pre, sv_speed_t_post,</span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>                  wv_speed_t_pre, wv_speed_t_post</span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a>                  ),</span>
+<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a>         <span class="at">upper.panel =</span> panel.pie,</span>
+<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a>         <span class="at">lower.panel =</span> panel.cor</span>
+<span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter
+Warning in par(usr): argument 1 does not name a graphical parameter</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><a href="First-analysis-reading-gains_files/figure-html/unnamed-chunk-6-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="First-analysis-reading-gains_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></a></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="all-data-except-k2-ma" class="level1">
+<h1>All data (except k2 MA)</h1>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">full_join</span>(data_k1, data_k2_ka) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Joining with `by = join_by(pid, treat, treat_drop, age_pre, migration_pre,
+language_pre, gender_pre, wv_cor_t_pre, wv_speed_t_pre, wv_sum_done_pre,
+wv_sum_score_pre, sv_cor_t_pre, sv_speed_t_pre, sv_sum_done_pre,
+sv_sum_score_pre, tv_cor_t_pre, tv_speed_t_pre, tv_sum_done_pre,
+tv_sum_score_pre, elfe_t_pre, ges_invalid_pre, age_post, migration_post,
+language_post, gender_post, wv_cor_t_post, wv_speed_t_post, wv_sum_done_post,
+wv_sum_score_post, sv_cor_t_post, sv_speed_t_post, sv_sum_done_post,
+sv_sum_score_post, tv_cor_t_post, tv_speed_t_post, tv_sum_done_post,
+tv_sum_score_post, elfe_t_post, ges_invalid_post, klassenstufe,
+dummy_foerderung, school, class, uni)`</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">skim</span>(data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="table table-sm table-striped small">
+<caption>Data summary</caption>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Name</td>
+<td style="text-align: left;">data</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Number of rows</td>
+<td style="text-align: left;">449</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Number of columns</td>
+<td style="text-align: left;">44</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">_______________________</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Column type frequency:</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">character</td>
+<td style="text-align: left;">2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">factor</td>
+<td style="text-align: left;">6</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">numeric</td>
+<td style="text-align: left;">36</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">________________________</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Group variables</td>
+<td style="text-align: left;">None</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variable type: character</strong></p>
+<table class="table table-sm table-striped small">
+<colgroup>
+<col style="width: 19%">
+<col style="width: 13%">
+<col style="width: 19%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 8%">
+<col style="width: 12%">
+<col style="width: 15%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">skim_variable</th>
+<th style="text-align: right;">n_missing</th>
+<th style="text-align: right;">complete_rate</th>
+<th style="text-align: right;">min</th>
+<th style="text-align: right;">max</th>
+<th style="text-align: right;">empty</th>
+<th style="text-align: right;">n_unique</th>
+<th style="text-align: right;">whitespace</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">pid</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">449</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">uni</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variable type: factor</strong></p>
+<table class="table table-sm table-striped small">
+<colgroup>
+<col style="width: 18%">
+<col style="width: 11%">
+<col style="width: 15%">
+<col style="width: 8%">
+<col style="width: 10%">
+<col style="width: 35%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">skim_variable</th>
+<th style="text-align: right;">n_missing</th>
+<th style="text-align: right;">complete_rate</th>
+<th style="text-align: left;">ordered</th>
+<th style="text-align: right;">n_unique</th>
+<th style="text-align: left;">top_counts</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">migration_pre</td>
+<td style="text-align: right;">34</td>
+<td style="text-align: right;">0.92</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">1: 213, 3: 134, 2: 68</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">language_pre</td>
+<td style="text-align: right;">34</td>
+<td style="text-align: right;">0.92</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">1: 223, 2: 148, 3: 44</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">gender_pre</td>
+<td style="text-align: right;">31</td>
+<td style="text-align: right;">0.93</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: left;">2: 218, 1: 194, 4: 4, 3: 2</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">dummy_foerderung</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">0: 348, 1: 101</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">school</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: left;">d: 150, a: 66, c: 64, 600: 41</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">class</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: right;">25</td>
+<td style="text-align: left;">c1: 22, c3: 22, d5: 22, 600: 21</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variable type: numeric</strong></p>
+<table class="table table-sm table-striped small">
+<colgroup>
+<col style="width: 21%">
+<col style="width: 12%">
+<col style="width: 17%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 3%">
+<col style="width: 6%">
+<col style="width: 4%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 7%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">skim_variable</th>
+<th style="text-align: right;">n_missing</th>
+<th style="text-align: right;">complete_rate</th>
+<th style="text-align: right;">mean</th>
+<th style="text-align: right;">sd</th>
+<th style="text-align: right;">p0</th>
+<th style="text-align: right;">p25</th>
+<th style="text-align: right;">p50</th>
+<th style="text-align: right;">p75</th>
+<th style="text-align: right;">p100</th>
+<th style="text-align: left;">hist</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">treat</td>
+<td style="text-align: right;">114</td>
+<td style="text-align: right;">0.75</td>
+<td style="text-align: right;">0.23</td>
+<td style="text-align: right;">0.42</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">▇▁▁▁▂</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">treat_drop</td>
+<td style="text-align: right;">114</td>
+<td style="text-align: right;">0.75</td>
+<td style="text-align: right;">0.07</td>
+<td style="text-align: right;">0.25</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">▇▁▁▁▁</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">age_pre</td>
+<td style="text-align: right;">31</td>
+<td style="text-align: right;">0.93</td>
+<td style="text-align: right;">8.75</td>
+<td style="text-align: right;">6.00</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">8.0</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">9.0</td>
+<td style="text-align: right;">99</td>
+<td style="text-align: left;">▇▁▁▁▁</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">wv_cor_t_pre</td>
+<td style="text-align: right;">22</td>
+<td style="text-align: right;">0.95</td>
+<td style="text-align: right;">46.94</td>
+<td style="text-align: right;">9.23</td>
+<td style="text-align: right;">25</td>
+<td style="text-align: right;">40.5</td>
+<td style="text-align: right;">47</td>
+<td style="text-align: right;">53.0</td>
+<td style="text-align: right;">74</td>
+<td style="text-align: left;">▂▆▇▃▁</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">wv_speed_t_pre</td>
+<td style="text-align: right;">22</td>
+<td style="text-align: right;">0.95</td>
+<td style="text-align: right;">46.67</td>
+<td style="text-align: right;">9.30</td>
+<td style="text-align: right;">25</td>
+<td style="text-align: right;">41.0</td>
+<td style="text-align: right;">47</td>
+<td style="text-align: right;">53.0</td>
+<td style="text-align: right;">75</td>
+<td style="text-align: left;">▃▆▇▃▁</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">wv_sum_done_pre</td>
+<td style="text-align: right;">22</td>
+<td style="text-align: right;">0.95</td>
+<td style="text-align: right;">36.42</td>
+<td style="text-align: right;">11.03</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">30.0</td>
+<td style="text-align: right;">36</td>
+<td style="text-align: right;">44.0</td>
+<td style="text-align: right;">74</td>
+<td style="text-align: left;">▁▃▇▃▁</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">wv_sum_score_pre</td>
+<td style="text-align: right;">22</td>
+<td style="text-align: right;">0.95</td>
+<td style="text-align: right;">35.58</td>
+<td style="text-align: right;">11.20</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">28.0</td>
+<td style="text-align: right;">36</td>
+<td style="text-align: right;">44.0</td>
+<td style="text-align: right;">68</td>
+<td style="text-align: left;">▁▅▇▆▁</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">sv_cor_t_pre</td>
+<td style="text-align: right;">22</td>
+<td style="text-align: right;">0.95</td>
+<td style="text-align: right;">45.38</td>
+<td style="text-align: right;">10.18</td>
+<td style="text-align: right;">25</td>
+<td style="text-align: right;">38.0</td>
+<td style="text-align: right;">46</td>
+<td style="text-align: right;">53.5</td>
+<td style="text-align: right;">71</td>
+<td style="text-align: left;">▃▇▇▆▂</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">sv_speed_t_pre</td>
+<td style="text-align: right;">22</td>
+<td style="text-align: right;">0.95</td>
+<td style="text-align: right;">44.96</td>
+<td style="text-align: right;">9.65</td>
+<td style="text-align: right;">25</td>
+<td style="text-align: right;">38.0</td>
+<td style="text-align: right;">45</td>
+<td style="text-align: right;">53.0</td>
+<td style="text-align: right;">70</td>
+<td style="text-align: left;">▃▇▇▆▁</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">sv_sum_done_pre</td>
+<td style="text-align: right;">22</td>
+<td style="text-align: right;">0.95</td>
+<td style="text-align: right;">14.47</td>
+<td style="text-align: right;">6.18</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">10.0</td>
+<td style="text-align: right;">14</td>
+<td style="text-align: right;">20.0</td>
+<td style="text-align: right;">30</td>
+<td style="text-align: left;">▃▇▇▆▂</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">sv_sum_score_pre</td>
+<td style="text-align: right;">22</td>
+<td style="text-align: right;">0.95</td>
+<td style="text-align: right;">13.71</td>
+<td style="text-align: right;">6.59</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">9.0</td>
+<td style="text-align: right;">14</td>
+<td style="text-align: right;">19.0</td>
+<td style="text-align: right;">30</td>
+<td style="text-align: left;">▅▇▇▆▂</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">tv_cor_t_pre</td>
+<td style="text-align: right;">22</td>
+<td style="text-align: right;">0.95</td>
+<td style="text-align: right;">40.79</td>
+<td style="text-align: right;">6.17</td>
+<td style="text-align: right;">25</td>
+<td style="text-align: right;">38.0</td>
+<td style="text-align: right;">41</td>
+<td style="text-align: right;">46.0</td>
+<td style="text-align: right;">69</td>
+<td style="text-align: left;">▂▇▆▁▁</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">tv_speed_t_pre</td>
+<td style="text-align: right;">22</td>
+<td style="text-align: right;">0.95</td>
+<td style="text-align: right;">46.44</td>
+<td style="text-align: right;">8.76</td>
+<td style="text-align: right;">25</td>
+<td style="text-align: right;">42.0</td>
+<td style="text-align: right;">47</td>
+<td style="text-align: right;">52.0</td>
+<td style="text-align: right;">69</td>
+<td style="text-align: left;">▁▅▇▅▁</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">tv_sum_done_pre</td>
+<td style="text-align: right;">22</td>
+<td style="text-align: right;">0.95</td>
+<td style="text-align: right;">11.95</td>
+<td style="text-align: right;">5.09</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">9.0</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">16.0</td>
+<td style="text-align: right;">26</td>
+<td style="text-align: left;">▂▇▇▅▁</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">tv_sum_score_pre</td>
+<td style="text-align: right;">22</td>
+<td style="text-align: right;">0.95</td>
+<td style="text-align: right;">6.10</td>
+<td style="text-align: right;">2.59</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">5.0</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">8.0</td>
+<td style="text-align: right;">20</td>
+<td style="text-align: left;">▃▇▂▁▁</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">elfe_t_pre</td>
+<td style="text-align: right;">22</td>
+<td style="text-align: right;">0.95</td>
+<td style="text-align: right;">43.66</td>
+<td style="text-align: right;">8.43</td>
+<td style="text-align: right;">25</td>
+<td style="text-align: right;">38.0</td>
+<td style="text-align: right;">44</td>
+<td style="text-align: right;">49.5</td>
+<td style="text-align: right;">66</td>
+<td style="text-align: left;">▂▆▇▅▁</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">ges_invalid_pre</td>
+<td style="text-align: right;">22</td>
+<td style="text-align: right;">0.95</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">0.12</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">▇▁▁▁▁</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">age_post</td>
+<td style="text-align: right;">58</td>
+<td style="text-align: right;">0.87</td>
+<td style="text-align: right;">9.05</td>
+<td style="text-align: right;">0.78</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">9.0</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">9.0</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: left;">▁▁▁▇▂</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">migration_post</td>
+<td style="text-align: right;">51</td>
+<td style="text-align: right;">0.89</td>
+<td style="text-align: right;">1.81</td>
+<td style="text-align: right;">0.88</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1.0</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">3.0</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">▇▁▃▁▅</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">language_post</td>
+<td style="text-align: right;">45</td>
+<td style="text-align: right;">0.90</td>
+<td style="text-align: right;">1.59</td>
+<td style="text-align: right;">0.69</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1.0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2.0</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">▇▁▆▁▂</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">gender_post</td>
+<td style="text-align: right;">49</td>
+<td style="text-align: right;">0.89</td>
+<td style="text-align: right;">1.59</td>
+<td style="text-align: right;">0.56</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1.0</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2.0</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: left;">▆▇▁▁▁</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">wv_cor_t_post</td>
+<td style="text-align: right;">38</td>
+<td style="text-align: right;">0.92</td>
+<td style="text-align: right;">49.38</td>
+<td style="text-align: right;">8.84</td>
+<td style="text-align: right;">25</td>
+<td style="text-align: right;">44.0</td>
+<td style="text-align: right;">50</td>
+<td style="text-align: right;">55.0</td>
+<td style="text-align: right;">75</td>
+<td style="text-align: left;">▁▃▇▃▁</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">wv_speed_t_post</td>
+<td style="text-align: right;">38</td>
+<td style="text-align: right;">0.92</td>
+<td style="text-align: right;">49.38</td>
+<td style="text-align: right;">8.80</td>
+<td style="text-align: right;">25</td>
+<td style="text-align: right;">43.5</td>
+<td style="text-align: right;">50</td>
+<td style="text-align: right;">55.0</td>
+<td style="text-align: right;">75</td>
+<td style="text-align: left;">▁▅▇▃▁</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">wv_sum_done_post</td>
+<td style="text-align: right;">38</td>
+<td style="text-align: right;">0.92</td>
+<td style="text-align: right;">45.91</td>
+<td style="text-align: right;">10.55</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: right;">39.0</td>
+<td style="text-align: right;">47</td>
+<td style="text-align: right;">52.0</td>
+<td style="text-align: right;">75</td>
+<td style="text-align: left;">▁▃▇▅▁</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">wv_sum_score_post</td>
+<td style="text-align: right;">38</td>
+<td style="text-align: right;">0.92</td>
+<td style="text-align: right;">45.18</td>
+<td style="text-align: right;">10.82</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">38.0</td>
+<td style="text-align: right;">46</td>
+<td style="text-align: right;">52.0</td>
+<td style="text-align: right;">74</td>
+<td style="text-align: left;">▁▂▇▅▁</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">sv_cor_t_post</td>
+<td style="text-align: right;">38</td>
+<td style="text-align: right;">0.92</td>
+<td style="text-align: right;">47.51</td>
+<td style="text-align: right;">9.79</td>
+<td style="text-align: right;">25</td>
+<td style="text-align: right;">41.0</td>
+<td style="text-align: right;">47</td>
+<td style="text-align: right;">55.0</td>
+<td style="text-align: right;">75</td>
+<td style="text-align: left;">▂▇▇▅▁</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">sv_speed_t_post</td>
+<td style="text-align: right;">38</td>
+<td style="text-align: right;">0.92</td>
+<td style="text-align: right;">47.54</td>
+<td style="text-align: right;">9.62</td>
+<td style="text-align: right;">25</td>
+<td style="text-align: right;">41.0</td>
+<td style="text-align: right;">47</td>
+<td style="text-align: right;">55.0</td>
+<td style="text-align: right;">75</td>
+<td style="text-align: left;">▂▇▇▃▁</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">sv_sum_done_post</td>
+<td style="text-align: right;">38</td>
+<td style="text-align: right;">0.92</td>
+<td style="text-align: right;">20.12</td>
+<td style="text-align: right;">6.28</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">16.0</td>
+<td style="text-align: right;">20</td>
+<td style="text-align: right;">25.0</td>
+<td style="text-align: right;">36</td>
+<td style="text-align: left;">▁▂▇▆▂</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">sv_sum_score_post</td>
+<td style="text-align: right;">38</td>
+<td style="text-align: right;">0.92</td>
+<td style="text-align: right;">19.25</td>
+<td style="text-align: right;">6.52</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">15.0</td>
+<td style="text-align: right;">19</td>
+<td style="text-align: right;">24.0</td>
+<td style="text-align: right;">36</td>
+<td style="text-align: left;">▁▃▇▆▁</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">tv_cor_t_post</td>
+<td style="text-align: right;">38</td>
+<td style="text-align: right;">0.92</td>
+<td style="text-align: right;">39.27</td>
+<td style="text-align: right;">5.68</td>
+<td style="text-align: right;">25</td>
+<td style="text-align: right;">36.0</td>
+<td style="text-align: right;">40</td>
+<td style="text-align: right;">42.0</td>
+<td style="text-align: right;">51</td>
+<td style="text-align: left;">▂▂▇▆▃</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">tv_speed_t_post</td>
+<td style="text-align: right;">38</td>
+<td style="text-align: right;">0.92</td>
+<td style="text-align: right;">47.96</td>
+<td style="text-align: right;">9.69</td>
+<td style="text-align: right;">25</td>
+<td style="text-align: right;">42.0</td>
+<td style="text-align: right;">49</td>
+<td style="text-align: right;">54.0</td>
+<td style="text-align: right;">67</td>
+<td style="text-align: left;">▂▂▇▃▃</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">tv_sum_done_post</td>
+<td style="text-align: right;">38</td>
+<td style="text-align: right;">0.92</td>
+<td style="text-align: right;">15.62</td>
+<td style="text-align: right;">5.66</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">12.0</td>
+<td style="text-align: right;">16</td>
+<td style="text-align: right;">19.0</td>
+<td style="text-align: right;">26</td>
+<td style="text-align: left;">▁▂▇▇▅</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">tv_sum_score_post</td>
+<td style="text-align: right;">38</td>
+<td style="text-align: right;">0.92</td>
+<td style="text-align: right;">7.71</td>
+<td style="text-align: right;">2.86</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">6.0</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">9.0</td>
+<td style="text-align: right;">14</td>
+<td style="text-align: left;">▁▃▇▇▂</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">elfe_t_post</td>
+<td style="text-align: right;">38</td>
+<td style="text-align: right;">0.92</td>
+<td style="text-align: right;">44.76</td>
+<td style="text-align: right;">8.02</td>
+<td style="text-align: right;">25</td>
+<td style="text-align: right;">40.0</td>
+<td style="text-align: right;">45</td>
+<td style="text-align: right;">51.0</td>
+<td style="text-align: right;">66</td>
+<td style="text-align: left;">▂▆▇▆▁</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">ges_invalid_post</td>
+<td style="text-align: right;">38</td>
+<td style="text-align: right;">0.92</td>
+<td style="text-align: right;">0.03</td>
+<td style="text-align: right;">0.16</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">▇▁▁▁▁</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">klassenstufe</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: right;">3.04</td>
+<td style="text-align: right;">0.36</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">3.0</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">3.0</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: left;">▁▁▇▁▁</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<section id="demographics-2" class="level2">
+<h2 class="anchored" data-anchor-id="demographics-2">Demographics</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co">#classes</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(data<span class="sc">$</span>class)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] a1    a2    b1    b2    c1    d1    d2    d3    d4    e1    60011 60012
+[13] 60111 60112 60211 60212 a3    a4    c2    c3    d5    d6    d7    d8   
+[25] e2   
+25 Levels: a1 a2 b1 b2 c1 d1 d2 d3 d4 e1 60011 60012 60111 60112 ... e2</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co">#students</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(data<span class="sc">$</span>pid)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  [1] "a101"    "a102"    "a103"    "a104"    "a105"    "a106"    "a107"   
+  [8] "a108"    "a109"    "a110"    "a111"    "a112"    "a113"    "a114"   
+ [15] "a115"    "a116"    "a117"    "a201"    "a202"    "a203"    "a204"   
+ [22] "a205"    "a206"    "a207"    "a208"    "a209"    "a210"    "a211"   
+ [29] "a212"    "a213"    "a214"    "a215"    "a216"    "b101"    "b102"   
+ [36] "b103"    "b104"    "b105"    "b106"    "b107"    "b108"    "b109"   
+ [43] "b110"    "b111"    "b112"    "b113"    "b114"    "b115"    "b116"   
+ [50] "b201"    "b202"    "b203"    "b204"    "b205"    "b206"    "b207"   
+ [57] "b208"    "b209"    "b210"    "b211"    "b212"    "c101"    "c102"   
+ [64] "c103"    "c104"    "c105"    "c106"    "c107"    "c108"    "c109"   
+ [71] "c110"    "c111"    "c112"    "c113"    "c114"    "c115"    "c116"   
+ [78] "c117"    "c118"    "c119"    "c120"    "c121"    "c123"    "d101"   
+ [85] "d102"    "d103"    "d104"    "d105"    "d106"    "d107"    "d108"   
+ [92] "d109"    "d110"    "d111"    "d112"    "d113"    "d114"    "d115"   
+ [99] "d116"    "d117"    "d118"    "d201"    "d203"    "d204"    "d205"   
+[106] "d206"    "d207"    "d208"    "d210"    "d211"    "d212"    "d213"   
+[113] "d214"    "d215"    "d216"    "d217"    "d218"    "d219"    "d220"   
+[120] "d301"    "d302"    "d303"    "d304"    "d305"    "d306"    "d307"   
+[127] "d308"    "d309"    "d310"    "d311"    "d312"    "d313"    "d314"   
+[134] "d315"    "d316"    "d317"    "d401"    "d402"    "d403"    "d404"   
+[141] "d405"    "d406"    "d407"    "d408"    "d409"    "d410"    "d411"   
+[148] "d412"    "d413"    "d414"    "d415"    "d416"    "d417"    "d418"   
+[155] "d419"    "d420"    "e101"    "e102"    "e103"    "e104"    "e105"   
+[162] "e106"    "e108"    "e109"    "e110"    "e111"    "6001102" "6001103"
+[169] "6001106" "6001107" "6001108" "6001109" "6001110" "6001111" "6001112"
+[176] "6001113" "6001114" "6001115" "6001116" "6001117" "6001118" "6001119"
+[183] "6001120" "6001121" "6001122" "6001202" "6001203" "6001204" "6001206"
+[190] "6001208" "6001209" "6001210" "6001211" "6001212" "6001214" "6001215"
+[197] "6001218" "6001219" "6001220" "6001222" "6001223" "6001224" "6011103"
+[204] "6011104" "6011105" "6011106" "6011107" "6011108" "6011110" "6011113"
+[211] "6011114" "6011115" "6011116" "6011117" "6011118" "6011119" "6011120"
+[218] "6011202" "6011203" "6011204" "6011205" "6011206" "6011207" "6011208"
+[225] "6011209" "6011210" "6011211" "6011213" "6011214" "6011215" "6011216"
+[232] "6011217" "6011218" "6011219" "6021102" "6021104" "6021105" "6021107"
+[239] "6021108" "6021109" "6021110" "6021111" "6021112" "6021113" "6021114"
+[246] "6021116" "6021117" "6021118" "6021119" "6021120" "6021121" "6021202"
+[253] "6021203" "6021204" "6021205" "6021206" "6021208" "6021209" "6021210"
+[260] "6021211" "6021212" "6021213" "6021216" "6021218" "6021220" "6001101"
+[267] "6001201" "6011101" "6011201" "6021106" "6021201" "6001104" "6001207"
+[274] "6001216" "6011102" "6011212" "6011220" "6011221" "6021207" "6021101"
+[281] "a301"    "a302"    "a303"    "a304"    "a305"    "a306"    "a307"   
+[288] "a308"    "a309"    "a310"    "a311"    "a312"    "a314"    "a315"   
+[295] "a316"    "a317"    "a401"    "a402"    "a403"    "a404"    "a405"   
+[302] "a406"    "a407"    "a408"    "a409"    "a411"    "a412"    "a413"   
+[309] "a414"    "a415"    "a416"    "a417"    "c201"    "c202"    "c203"   
+[316] "c204"    "c205"    "c206"    "c207"    "c208"    "c209"    "c210"   
+[323] "c211"    "c212"    "c213"    "c214"    "c215"    "c217"    "c218"   
+[330] "c219"    "c220"    "c301"    "c302"    "c303"    "c304"    "c305"   
+[337] "c306"    "c307"    "c308"    "c309"    "c310"    "c311"    "c312"   
+[344] "c313"    "c314"    "c315"    "c316"    "c317"    "c318"    "c321"   
+[351] "c322"    "d501"    "d503"    "d504"    "d505"    "d506"    "d507"   
+[358] "d508"    "d509"    "d510"    "d511"    "d512"    "d514"    "d515"   
+[365] "d516"    "d517"    "d518"    "d519"    "d520"    "d521"    "d522"   
+[372] "d523"    "d601"    "d602"    "d603"    "d604"    "d605"    "d606"   
+[379] "d607"    "d608"    "d611"    "d612"    "d613"    "d615"    "d616"   
+[386] "d617"    "d618"    "d619"    "d620"    "d621"    "d623"    "d701"   
+[393] "d702"    "d703"    "d704"    "d705"    "d706"    "d707"    "d708"   
+[400] "d709"    "d710"    "d711"    "d712"    "d713"    "d714"    "d715"   
+[407] "d716"    "d717"    "d801"    "d802"    "d803"    "d804"    "d805"   
+[414] "d806"    "d807"    "d808"    "d809"    "d810"    "d811"    "d812"   
+[421] "d814"    "d815"    "d816"    "d817"    "d818"    "d819"    "e201"   
+[428] "e202"    "e203"    "e204"    "e205"    "e206"    "e207"    "e208"   
+[435] "e209"    "e210"    "e211"    "e212"    "e213"    "e214"    "e215"   
+[442] "e216"    "e217"    "c216"    "c319"    "c320"    "d513"    "d813"   
+[449] "a418"   </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Förderkinder</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">as.numeric</span>(data<span class="sc">$</span>dummy_foerderung) <span class="sc">-</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 101</code></pre>
+</div>
+</div>
+</section>
+<section id="missingness" class="level2">
+<h2 class="anchored" data-anchor-id="missingness">Missingness</h2>
+<section id="plotting-missingness" class="level3">
+<h3 class="anchored" data-anchor-id="plotting-missingness">Plotting Missingness</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>data_to_imp <span class="ot">&lt;-</span> </span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>  data <span class="sc">|&gt;</span></span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(elfe_t_pre,</span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>         gender_pre,</span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>         migration_pre,</span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a>         language_pre,</span>
+<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a>         elfe_t_post,</span>
+<span id="cb36-8"><a href="#cb36-8" aria-hidden="true" tabindex="-1"></a>         wv_sum_score_pre,</span>
+<span id="cb36-9"><a href="#cb36-9" aria-hidden="true" tabindex="-1"></a>         sv_sum_score_pre,</span>
+<span id="cb36-10"><a href="#cb36-10" aria-hidden="true" tabindex="-1"></a>         tv_sum_score_pre,</span>
+<span id="cb36-11"><a href="#cb36-11" aria-hidden="true" tabindex="-1"></a>         wv_sum_score_post,</span>
+<span id="cb36-12"><a href="#cb36-12" aria-hidden="true" tabindex="-1"></a>         sv_sum_score_post,</span>
+<span id="cb36-13"><a href="#cb36-13" aria-hidden="true" tabindex="-1"></a>         tv_sum_score_post,</span>
+<span id="cb36-14"><a href="#cb36-14" aria-hidden="true" tabindex="-1"></a>         class) <span class="sc">|&gt;</span></span>
+<span id="cb36-15"><a href="#cb36-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tibble</span>() </span>
+<span id="cb36-16"><a href="#cb36-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-17"><a href="#cb36-17" aria-hidden="true" tabindex="-1"></a><span class="fu">vis_miss</span>(data_to_imp)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><a href="First-analysis-reading-gains_files/figure-html/unnamed-chunk-9-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img src="First-analysis-reading-gains_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></a></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gg_miss_upset</span>(data_to_imp,</span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>              <span class="at">nsets =</span> <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><a href="First-analysis-reading-gains_files/figure-html/unnamed-chunk-9-2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6"><img src="First-analysis-reading-gains_files/figure-html/unnamed-chunk-9-2.png" class="img-fluid figure-img" width="672"></a></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data_to_imp,</span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> elfe_t_pre,</span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">y =</span> elfe_t_post)) <span class="sc">+</span></span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a> <span class="fu">geom_miss_point</span>() <span class="sc">+</span></span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a> <span class="fu">theme_modern_rc</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><a href="First-analysis-reading-gains_files/figure-html/unnamed-chunk-9-3.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7"><img src="First-analysis-reading-gains_files/figure-html/unnamed-chunk-9-3.png" class="img-fluid figure-img" width="672"></a></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data_to_imp,</span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> wv_sum_score_pre,</span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">y =</span> wv_sum_score_post)) <span class="sc">+</span></span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a> <span class="fu">geom_miss_point</span>() <span class="sc">+</span></span>
+<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a> <span class="fu">theme_modern_rc</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><a href="First-analysis-reading-gains_files/figure-html/unnamed-chunk-9-4.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8"><img src="First-analysis-reading-gains_files/figure-html/unnamed-chunk-9-4.png" class="img-fluid figure-img" width="672"></a></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data_to_imp,</span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> wv_sum_score_pre,</span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">y =</span> wv_sum_score_post)) <span class="sc">+</span></span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a> <span class="fu">geom_miss_point</span>() <span class="sc">+</span></span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a> <span class="fu">theme_modern_rc</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><a href="First-analysis-reading-gains_files/figure-html/unnamed-chunk-9-5.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9"><img src="First-analysis-reading-gains_files/figure-html/unnamed-chunk-9-5.png" class="img-fluid figure-img" width="672"></a></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data_to_imp,</span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> tv_sum_score_pre,</span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">y =</span> tv_sum_score_post)) <span class="sc">+</span></span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a> <span class="fu">geom_miss_point</span>(<span class="at">alpha =</span> .<span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a> <span class="fu">theme_modern_rc</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><a href="First-analysis-reading-gains_files/figure-html/unnamed-chunk-9-6.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10"><img src="First-analysis-reading-gains_files/figure-html/unnamed-chunk-9-6.png" class="img-fluid figure-img" width="672"></a></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="differences-in-gain" class="level2">
+<h2 class="anchored" data-anchor-id="differences-in-gain">Differences in gain</h2>
+<section id="data-wrangling" class="level3">
+<h3 class="anchored" data-anchor-id="data-wrangling">Data Wrangling</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>data_long <span class="ot">&lt;-</span> </span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>  data <span class="sc">|&gt;</span> </span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">names_to =</span> <span class="st">"time"</span>,</span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a>               <span class="at">values_to =</span> <span class="st">"elfe"</span>,</span>
+<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a>               <span class="at">cols =</span> <span class="fu">c</span>(elfe_t_pre, elfe_t_post)) <span class="sc">|&gt;</span> </span>
+<span id="cb42-6"><a href="#cb42-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">time =</span> <span class="fu">substr</span>(time, <span class="dv">8</span>, <span class="dv">11</span>),</span>
+<span id="cb42-7"><a href="#cb42-7" aria-hidden="true" tabindex="-1"></a>         <span class="at">time =</span> <span class="fu">factor</span>(time, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"pre"</span>, <span class="st">"post"</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="plotting" class="level3">
+<h3 class="anchored" data-anchor-id="plotting">Plotting</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data_long,</span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(time, elfe, <span class="at">group =</span> pid)) <span class="sc">+</span> </span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">color =</span> dummy_foerderung), <span class="at">alpha =</span>.<span class="dv">5</span>) <span class="sc">+</span></span>
+<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_modern_rc</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 60 rows containing missing values or values outside the scale range
+(`geom_line()`).</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><a href="First-analysis-reading-gains_files/figure-html/unnamed-chunk-11-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-11"><img src="First-analysis-reading-gains_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="672"></a></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data <span class="sc">|&gt;</span> </span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>         <span class="fu">mutate</span>(<span class="at">gain_t =</span> elfe_t_post <span class="sc">-</span> elfe_t_pre),</span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(dummy_foerderung, gain_t)) <span class="sc">+</span> </span>
+<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sina</span>(<span class="fu">aes</span>(<span class="at">color =</span> elfe_t_pre)) <span class="sc">+</span> </span>
+<span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">fun.data =</span> mean_sdl, </span>
+<span id="cb45-6"><a href="#cb45-6" aria-hidden="true" tabindex="-1"></a>               <span class="at">geom =</span> <span class="st">"errorbar"</span>,</span>
+<span id="cb45-7"><a href="#cb45-7" aria-hidden="true" tabindex="-1"></a>               <span class="at">color =</span> <span class="st">"lightgrey"</span>,</span>
+<span id="cb45-8"><a href="#cb45-8" aria-hidden="true" tabindex="-1"></a>               <span class="at">fun.args =</span> <span class="fu">list</span>(<span class="at">mult =</span> <span class="dv">1</span>),</span>
+<span id="cb45-9"><a href="#cb45-9" aria-hidden="true" tabindex="-1"></a>               <span class="at">width =</span> <span class="dv">0</span>) <span class="sc">+</span></span>
+<span id="cb45-10"><a href="#cb45-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">fun.data =</span> mean_sdl, </span>
+<span id="cb45-11"><a href="#cb45-11" aria-hidden="true" tabindex="-1"></a>               <span class="at">geom =</span> <span class="st">"point"</span>,</span>
+<span id="cb45-12"><a href="#cb45-12" aria-hidden="true" tabindex="-1"></a>               <span class="at">color =</span> <span class="st">"lightgrey"</span>) <span class="sc">+</span></span>
+<span id="cb45-13"><a href="#cb45-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_modern_rc</span>() <span class="sc">+</span></span>
+<span id="cb45-14"><a href="#cb45-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_continuous</span>(<span class="at">type =</span> <span class="st">"viridis"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 59 rows containing non-finite outside the scale range
+(`stat_sina()`).</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 59 rows containing non-finite outside the scale range
+(`stat_summary()`).
+Removed 59 rows containing non-finite outside the scale range
+(`stat_summary()`).</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><a href="First-analysis-reading-gains_files/figure-html/unnamed-chunk-12-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-12"><img src="First-analysis-reading-gains_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="672"></a></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="linear-regression-single-level" class="level2">
+<h2 class="anchored" data-anchor-id="linear-regression-single-level">Linear Regression (single level)</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>mod_gain_t <span class="ot">&lt;-</span> </span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">brm</span>(gain_t <span class="sc">~</span> dummy_foerderung,</span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>      <span class="at">family =</span> <span class="fu">student</span>(),</span>
+<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a>      <span class="at">data =</span> data <span class="sc">|&gt;</span> </span>
+<span id="cb48-5"><a href="#cb48-5" aria-hidden="true" tabindex="-1"></a>         <span class="fu">mutate</span>(<span class="at">gain_t =</span> elfe_t_post <span class="sc">-</span> elfe_t_pre))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Rows containing NAs were excluded from the model.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Compiling Stan program...</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Start sampling</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+SAMPLING FOR MODEL 'anon_model' NOW (CHAIN 1).
+Chain 1: 
+Chain 1: Gradient evaluation took 7e-05 seconds
+Chain 1: 1000 transitions using 10 leapfrog steps per transition would take 0.7 seconds.
+Chain 1: Adjust your expectations accordingly!
+Chain 1: 
+Chain 1: 
+Chain 1: Iteration:    1 / 2000 [  0%]  (Warmup)
+Chain 1: Iteration:  200 / 2000 [ 10%]  (Warmup)
+Chain 1: Iteration:  400 / 2000 [ 20%]  (Warmup)
+Chain 1: Iteration:  600 / 2000 [ 30%]  (Warmup)
+Chain 1: Iteration:  800 / 2000 [ 40%]  (Warmup)
+Chain 1: Iteration: 1000 / 2000 [ 50%]  (Warmup)
+Chain 1: Iteration: 1001 / 2000 [ 50%]  (Sampling)
+Chain 1: Iteration: 1200 / 2000 [ 60%]  (Sampling)
+Chain 1: Iteration: 1400 / 2000 [ 70%]  (Sampling)
+Chain 1: Iteration: 1600 / 2000 [ 80%]  (Sampling)
+Chain 1: Iteration: 1800 / 2000 [ 90%]  (Sampling)
+Chain 1: Iteration: 2000 / 2000 [100%]  (Sampling)
+Chain 1: 
+Chain 1:  Elapsed Time: 0.179 seconds (Warm-up)
+Chain 1:                0.138 seconds (Sampling)
+Chain 1:                0.317 seconds (Total)
+Chain 1: 
+
+SAMPLING FOR MODEL 'anon_model' NOW (CHAIN 2).
+Chain 2: 
+Chain 2: Gradient evaluation took 2.4e-05 seconds
+Chain 2: 1000 transitions using 10 leapfrog steps per transition would take 0.24 seconds.
+Chain 2: Adjust your expectations accordingly!
+Chain 2: 
+Chain 2: 
+Chain 2: Iteration:    1 / 2000 [  0%]  (Warmup)
+Chain 2: Iteration:  200 / 2000 [ 10%]  (Warmup)
+Chain 2: Iteration:  400 / 2000 [ 20%]  (Warmup)
+Chain 2: Iteration:  600 / 2000 [ 30%]  (Warmup)
+Chain 2: Iteration:  800 / 2000 [ 40%]  (Warmup)
+Chain 2: Iteration: 1000 / 2000 [ 50%]  (Warmup)
+Chain 2: Iteration: 1001 / 2000 [ 50%]  (Sampling)
+Chain 2: Iteration: 1200 / 2000 [ 60%]  (Sampling)
+Chain 2: Iteration: 1400 / 2000 [ 70%]  (Sampling)
+Chain 2: Iteration: 1600 / 2000 [ 80%]  (Sampling)
+Chain 2: Iteration: 1800 / 2000 [ 90%]  (Sampling)
+Chain 2: Iteration: 2000 / 2000 [100%]  (Sampling)
+Chain 2: 
+Chain 2:  Elapsed Time: 0.176 seconds (Warm-up)
+Chain 2:                0.131 seconds (Sampling)
+Chain 2:                0.307 seconds (Total)
+Chain 2: 
+
+SAMPLING FOR MODEL 'anon_model' NOW (CHAIN 3).
+Chain 3: 
+Chain 3: Gradient evaluation took 2.3e-05 seconds
+Chain 3: 1000 transitions using 10 leapfrog steps per transition would take 0.23 seconds.
+Chain 3: Adjust your expectations accordingly!
+Chain 3: 
+Chain 3: 
+Chain 3: Iteration:    1 / 2000 [  0%]  (Warmup)
+Chain 3: Iteration:  200 / 2000 [ 10%]  (Warmup)
+Chain 3: Iteration:  400 / 2000 [ 20%]  (Warmup)
+Chain 3: Iteration:  600 / 2000 [ 30%]  (Warmup)
+Chain 3: Iteration:  800 / 2000 [ 40%]  (Warmup)
+Chain 3: Iteration: 1000 / 2000 [ 50%]  (Warmup)
+Chain 3: Iteration: 1001 / 2000 [ 50%]  (Sampling)
+Chain 3: Iteration: 1200 / 2000 [ 60%]  (Sampling)
+Chain 3: Iteration: 1400 / 2000 [ 70%]  (Sampling)
+Chain 3: Iteration: 1600 / 2000 [ 80%]  (Sampling)
+Chain 3: Iteration: 1800 / 2000 [ 90%]  (Sampling)
+Chain 3: Iteration: 2000 / 2000 [100%]  (Sampling)
+Chain 3: 
+Chain 3:  Elapsed Time: 0.19 seconds (Warm-up)
+Chain 3:                0.139 seconds (Sampling)
+Chain 3:                0.329 seconds (Total)
+Chain 3: 
+
+SAMPLING FOR MODEL 'anon_model' NOW (CHAIN 4).
+Chain 4: 
+Chain 4: Gradient evaluation took 2.6e-05 seconds
+Chain 4: 1000 transitions using 10 leapfrog steps per transition would take 0.26 seconds.
+Chain 4: Adjust your expectations accordingly!
+Chain 4: 
+Chain 4: 
+Chain 4: Iteration:    1 / 2000 [  0%]  (Warmup)
+Chain 4: Iteration:  200 / 2000 [ 10%]  (Warmup)
+Chain 4: Iteration:  400 / 2000 [ 20%]  (Warmup)
+Chain 4: Iteration:  600 / 2000 [ 30%]  (Warmup)
+Chain 4: Iteration:  800 / 2000 [ 40%]  (Warmup)
+Chain 4: Iteration: 1000 / 2000 [ 50%]  (Warmup)
+Chain 4: Iteration: 1001 / 2000 [ 50%]  (Sampling)
+Chain 4: Iteration: 1200 / 2000 [ 60%]  (Sampling)
+Chain 4: Iteration: 1400 / 2000 [ 70%]  (Sampling)
+Chain 4: Iteration: 1600 / 2000 [ 80%]  (Sampling)
+Chain 4: Iteration: 1800 / 2000 [ 90%]  (Sampling)
+Chain 4: Iteration: 2000 / 2000 [100%]  (Sampling)
+Chain 4: 
+Chain 4:  Elapsed Time: 0.179 seconds (Warm-up)
+Chain 4:                0.134 seconds (Sampling)
+Chain 4:                0.313 seconds (Total)
+Chain 4: </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>mod_gain_t</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> Family: student 
+  Links: mu = identity; sigma = identity; nu = identity 
+Formula: gain_t ~ dummy_foerderung 
+   Data: mutate(data, gain_t = elfe_t_post - elfe_t_pre) (Number of observations: 390) 
+  Draws: 4 chains, each with iter = 2000; warmup = 1000; thin = 1;
+         total post-warmup draws = 4000
+
+Regression Coefficients:
+                  Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+Intercept             0.52      0.25     0.04     0.99 1.00     3406     2825
+dummy_foerderung1     1.10      0.51     0.10     2.08 1.00     4026     2871
+
+Further Distributional Parameters:
+      Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+sigma     4.03      0.18     3.67     4.37 1.00     3456     2589
+nu       21.47     10.98     8.10    49.54 1.00     3308     2944
+
+Draws were sampled using sampling(NUTS). For each parameter, Bulk_ESS
+and Tail_ESS are effective sample size measures, and Rhat is the potential
+scale reduction factor on split chains (at convergence, Rhat = 1).</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(mod_gain_t)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><a href="First-analysis-reading-gains_files/figure-html/unnamed-chunk-13-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-13"><img src="First-analysis-reading-gains_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid figure-img" width="672"></a></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pd</span>(mod_gain_t)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Probability of Direction
+
+Parameter         |     pd
+--------------------------
+(Intercept)       | 98.50%
+dummy_foerderung1 | 98.47%</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">pd</span>(mod_gain_t))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><a href="First-analysis-reading-gains_files/figure-html/unnamed-chunk-13-2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-14"><img src="First-analysis-reading-gains_files/figure-html/unnamed-chunk-13-2.png" class="img-fluid figure-img" width="672"></a></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rope</span>(mod_gain_t, <span class="at">range =</span> <span class="fu">c</span>(<span class="sc">-</span>.<span class="dv">1</span>, .<span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># Proportion of samples inside the ROPE [-0.10, 0.10]:
+
+Parameter         | inside ROPE
+-------------------------------
+Intercept         |      1.87 %
+dummy_foerderung1 |      0.00 %</code></pre>
+</div>
+</div>
+</section>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<script>var lightboxQuarto = GLightbox({"selector":".lightbox","loop":false,"descPosition":"bottom","openEffect":"zoom","closeEffect":"zoom"});
+window.onload = () => {
+  lightboxQuarto.on('slide_before_load', (data) => {
+    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+    const href = trigger.getAttribute('href');
+    if (href !== null) {
+      const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+      if (imgEl !== null) {
+        const srcAttr = imgEl.getAttribute("src");
+        if (srcAttr && srcAttr.startsWith("data:")) {
+          slideConfig.href = srcAttr;
+        }
+      }
+    } 
+  });
+
+  lightboxQuarto.on('slide_after_load', (data) => {
+    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+    if (window.Quarto?.typesetMath) {
+      window.Quarto.typesetMath(slideNode);
+    }
+  });
+
+};
+          </script>
+
+
+
+
+</body></html>

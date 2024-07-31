@@ -1,0 +1,354 @@
+---
+title: "First analysis reading gains"
+author: "Samuel Merk, Sarah Bez"
+format: 
+  html:
+    toc: true
+    theme: 
+      light: flatly
+      dark: darkly
+    lightbox: true
+editor_options: 
+  chunk_output_type: console
+---
+
+
+## Variables
+
+* pid = pseudonym kind
+* elfe_pre = Elfe score prä 
+* elfe_post = elfe score post
+* treat = Variable für treatment, 0 = kein t, 1 = treatment 
+* treat_drop = Variable für dropout oder späteres Hinzukommen beim treatment, 0 = nein, 1 = ja 
+
+# Overview
+
+## Kohorte 1 MA und KA
+
+### Descriptive Overview
+
+```{r}
+#| message: false
+
+library(tidyverse)
+library(skimr)
+library(ggforce)
+library(hrbrthemes)
+library(MatchThem)
+library(mice)
+library(cobalt)
+library(naniar)
+library(patchwork)
+library(brms)
+library(bayesplot)
+library(bayestestR)
+library(sjPlot)
+
+data_k1 <- read_csv("data/data_ELFE_KA_k1.csv") |> 
+  column_to_rownames("...1") |> 
+  mutate(dummy_foerderung = as.factor(treat),
+         school = as.factor(substr(pid, 1, 1)),
+         class = as.factor(substr(pid, 1, 2)),
+         gender_pre = as.factor(gender_pre),
+         migration_pre = as.factor(migration_pre),
+         language_pre = as.factor(language_pre),
+         uni = "KA") |> 
+  rename(elfe_t_pre = elfe_pre,
+         elfe_t_post = elfe_post) |> 
+  as_tibble() |> 
+  full_join(
+    read_csv("data/data_ELFE_MA_k1.csv") |> 
+  column_to_rownames("...1") |> 
+  mutate(dummy_foerderung = as.factor(dummy_foerderung),
+         school = as.factor(substr(pid, 1, 3)),
+         class = as.factor(substr(pid, 1, 5)),
+         gender_pre = as.factor(gender_pre),
+         migration_pre = as.factor(migration_pre),
+         language_pre = as.factor(language_pre),
+        #elfe_t_pre = elfe_pre,
+         #elfe_t_post = elfe_post,
+         pid = as.character(pid),
+         uni = "MA",
+         klassenstufe = case_when(class == 60011 ~ 3, # to avoid missings in _pre und _post
+                                       class == 60012 ~ 2, 
+                                       class == 60111 ~ 4, 
+                                       class == 60112 ~ 4, 
+                                       class == 60211 ~ 3, 
+                                       class == 60212 ~ 3))%>%
+      select(-klassenstufe_post)%>%
+      select(-klassenstufe.y)%>%
+    select(-klassenstufe.x)%>%
+    as_tibble()
+  )
+    
+
+skim(data_k1)
+
+
+```
+
+### Demographics
+
+```{r}
+#classes
+data_k1 |> 
+  filter(uni == "KA") |> 
+  pull(pid) |> 
+  substr(1,2) |> 
+  table()
+
+data_k1 |> 
+  filter(uni == "MA") |> 
+  pull(pid) |> 
+  substr(1,5) |> 
+  table()
+
+unique(data_k1$pid)
+
+sum(as.numeric(data_k1$dummy_foerderung) -1)
+```
+
+
+## Kohorte 2 KA 
+
+### Descriptive overview
+```{r}
+data_k2_ka <- read_csv("data/data_ELFE_KA_k2.csv") |> 
+  column_to_rownames("...1") |> 
+  mutate(dummy_foerderung = as.factor(treat),
+         school = as.factor(substr(pid, 1, 1)),
+         class = as.factor(substr(pid, 1, 2)),
+         gender_pre = as.factor(gender_pre),
+         migration_pre = as.factor(migration_pre),
+         language_pre = as.factor(language_pre),
+         uni = "KA")%>%
+  rename(elfe_t_pre = elfe_pre,
+         elfe_t_post = elfe_post)%>%
+  select(-Uni)
+
+skim(data_k2_ka)
+
+```
+
+
+### Demographics
+
+```{r}
+#classes
+data_k2_ka |> 
+  filter(uni == "KA") |> 
+  pull(pid) |> 
+  substr(1,2) |> 
+  table()
+
+unique(data_k2_ka$pid)
+
+sum(as.numeric(data_k2_ka$dummy_foerderung) -1)
+```
+
+# Retestcorrelations
+
+## Retestcorrelations k1
+
+```{r}
+library(corrgram)
+corrgram(data_k1 |> 
+           select(elfe_t_pre, elfe_t_post,
+                  tv_sum_score_pre, tv_sum_score_post,
+                  sv_sum_score_pre, sv_sum_score_post, 
+                  wv_sum_score_pre, wv_sum_score_post,
+                  tv_speed_t_pre, tv_speed_t_post,
+                  sv_speed_t_pre, sv_speed_t_post,
+                  wv_speed_t_pre, wv_speed_t_post
+                  ),
+         upper.panel = panel.pie,
+         lower.panel = panel.cor
+)
+
+corrgram(data_k1 |> 
+           filter(uni == "KA") |> 
+           select(elfe_t_pre, elfe_t_post,
+                  tv_sum_score_pre, tv_sum_score_post,
+                  sv_sum_score_pre, sv_sum_score_post, 
+                  wv_sum_score_pre, wv_sum_score_post,
+                  tv_speed_t_pre, tv_speed_t_post,
+                  sv_speed_t_pre, sv_speed_t_post,
+                  wv_speed_t_pre, wv_speed_t_post
+                  ),
+         upper.panel = panel.pie,
+         lower.panel = panel.cor
+)
+
+corrgram(data_k1 |> 
+           filter(uni == "MA") |> 
+           select(elfe_t_pre, elfe_t_post,
+                  tv_sum_score_pre, tv_sum_score_post,
+                  sv_sum_score_pre, sv_sum_score_post, 
+                  wv_sum_score_pre, wv_sum_score_post,
+                  tv_speed_t_pre, tv_speed_t_post,
+                  sv_speed_t_pre, sv_speed_t_post,
+                  wv_speed_t_pre, wv_speed_t_post
+                  ),
+         upper.panel = panel.pie,
+        lower.panel = panel.cor
+)
+```
+
+## Retestcorrelations k2 KA
+
+```{r}
+library(corrgram)
+corrgram(data_k2_ka |> 
+           select(elfe_t_pre, elfe_t_post,
+                  tv_sum_score_pre, tv_sum_score_post,
+                  sv_sum_score_pre, sv_sum_score_post, 
+                  wv_sum_score_pre, wv_sum_score_post,
+                  tv_speed_t_pre, tv_speed_t_post,
+                  sv_speed_t_pre, sv_speed_t_post,
+                  wv_speed_t_pre, wv_speed_t_post
+                  ),
+         upper.panel = panel.pie,
+         lower.panel = panel.cor
+)
+```
+
+# All data (except k2 MA)
+
+```{r}
+data <- full_join(data_k1, data_k2_ka) 
+
+skim(data)
+
+
+```
+
+## Demographics
+
+```{r}
+#classes
+unique(data$class)
+
+#students
+unique(data$pid)
+
+#Förderkinder
+sum(as.numeric(data$dummy_foerderung) -1)
+```
+
+## Missingness
+
+### Plotting Missingness
+
+```{r}
+data_to_imp <- 
+  data |>
+  select(elfe_t_pre,
+         gender_pre,
+         migration_pre,
+         language_pre,
+         elfe_t_post,
+         wv_sum_score_pre,
+         sv_sum_score_pre,
+         tv_sum_score_pre,
+         wv_sum_score_post,
+         sv_sum_score_post,
+         tv_sum_score_post,
+         class) |>
+  tibble() 
+
+vis_miss(data_to_imp)
+
+gg_miss_upset(data_to_imp,
+              nsets = 10)
+
+ggplot(data_to_imp,
+       aes(x = elfe_t_pre,
+           y = elfe_t_post)) +
+ geom_miss_point() +
+ theme_modern_rc()
+   
+ggplot(data_to_imp,
+       aes(x = wv_sum_score_pre,
+           y = wv_sum_score_post)) +
+ geom_miss_point() +
+ theme_modern_rc()
+
+ggplot(data_to_imp,
+       aes(x = wv_sum_score_pre,
+           y = wv_sum_score_post)) +
+ geom_miss_point() +
+ theme_modern_rc()
+
+ggplot(data_to_imp,
+       aes(x = tv_sum_score_pre,
+           y = tv_sum_score_post)) +
+ geom_miss_point(alpha = .3) +
+ theme_modern_rc()
+```
+
+
+
+## Differences in gain
+### Data Wrangling
+
+```{r}
+data_long <- 
+  data |> 
+  pivot_longer(names_to = "time",
+               values_to = "elfe",
+               cols = c(elfe_t_pre, elfe_t_post)) |> 
+  mutate(time = substr(time, 8, 11),
+         time = factor(time, levels = c("pre", "post")))
+
+
+```
+
+### Plotting
+
+```{r}
+ggplot(data_long,
+       aes(time, elfe, group = pid)) + 
+  geom_line(aes(color = dummy_foerderung), alpha =.5) +
+  theme_modern_rc()
+
+```
+
+```{r}
+ggplot(data |> 
+         mutate(gain_t = elfe_t_post - elfe_t_pre),
+       aes(dummy_foerderung, gain_t)) + 
+  geom_sina(aes(color = elfe_t_pre)) + 
+  stat_summary(fun.data = mean_sdl, 
+               geom = "errorbar",
+               color = "lightgrey",
+               fun.args = list(mult = 1),
+               width = 0) +
+  stat_summary(fun.data = mean_sdl, 
+               geom = "point",
+               color = "lightgrey") +
+  theme_modern_rc() +
+  scale_color_continuous(type = "viridis")
+
+```
+
+
+## Linear Regression (single level)
+
+```{r}
+mod_gain_t <- 
+  brm(gain_t ~ dummy_foerderung,
+      family = student(),
+      data = data |> 
+         mutate(gain_t = elfe_t_post - elfe_t_pre))
+
+mod_gain_t
+
+plot(mod_gain_t)
+
+pd(mod_gain_t)
+
+plot(pd(mod_gain_t))
+     
+rope(mod_gain_t, range = c(-.1, .1))
+
+```
