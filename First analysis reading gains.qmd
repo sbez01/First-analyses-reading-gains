@@ -30,7 +30,6 @@ editor_options:
 ```{r}
 #| message: false
 
-library(tidyverse)
 library(skimr)
 library(ggforce)
 library(hrbrthemes)
@@ -43,6 +42,8 @@ library(brms)
 library(bayesplot)
 library(bayestestR)
 library(sjPlot)
+library(effectsize)
+library(tidyverse)
 
 data_k1 <- read_csv("data/data_ELFE_KA_k1.csv") |> 
   column_to_rownames("...1") |> 
@@ -210,16 +211,44 @@ corrgram(data_k2_ka |>
          upper.panel = panel.pie,
          lower.panel = panel.cor
 )
+
+corrgram(data_k2_ka |> 
+           select(elfe_t_post,
+                   tv_sum_score_post,
+                   sv_sum_score_post, 
+                   wv_sum_score_post,
+                   tv_speed_t_post,
+                   sv_speed_t_post,
+                   wv_speed_t_post
+                  ),
+         upper.panel = panel.pie,
+         lower.panel = panel.cor
+)
+
+corrgram(data_k2_ka |> 
+           select(elfe_t_pre, 
+                  tv_sum_score_pre, 
+                  sv_sum_score_pre, 
+                  wv_sum_score_pre, 
+                  tv_speed_t_pre,
+                  sv_speed_t_pre,
+                  wv_speed_t_pre
+                  ),
+         upper.panel = panel.pie,
+         lower.panel = panel.cor
+)
 ```
 
 # All data (except k2 MA)
 
 ```{r}
-data <- full_join(data_k1, data_k2_ka) 
+data <- full_join(data_k1, data_k2_ka) %>% 
+  mutate(gain_t = elfe_t_post - elfe_t_pre,
+         gain_sum_wv = wv_sum_score_post - wv_sum_score_pre,
+         gain_sum_sv = sv_sum_score_post - sv_sum_score_pre,
+         gain_sum_tv = tv_sum_score_post - tv_sum_score_pre)
 
 skim(data)
-
-
 ```
 
 ## Demographics
@@ -294,28 +323,37 @@ ggplot(data_to_imp,
 ```{r}
 data_long <- 
   data |> 
-  pivot_longer(names_to = "time",
-               values_to = "elfe",
-               cols = c(elfe_t_pre, elfe_t_post)) |> 
-  mutate(time = substr(time, 8, 11),
-         time = factor(time, levels = c("pre", "post")))
-
-
+  pivot_longer(names_to = "variable",
+               values_to = "value",
+               cols = c(contains("pre"), contains("post")),
+               values_transform = list(value = as.character)) |> 
+  mutate(time = ifelse(str_detect(variable, "pre"), "pre", "post"),
+         variable2 = ifelse(time == "pre",
+                            str_sub(variable,-100,  -5),
+                            str_sub(variable,-100,  -6))) %>% 
+  select(-variable) %>% 
+  pivot_wider(names_from = variable2,
+              values_from = value) %>% 
+  mutate(time = factor(time, levels = c("pre", "post"))) %>% 
+  mutate(across(contains("sum_score"), as.numeric),
+         across(contains("speed"), as.numeric),
+         across(contains("_t"), as.numeric))
 ```
 
-### Plotting
 
+
+
+
+## Gain-t linear Regression
+### Homoskedastic Linear Regression 
 ```{r}
-ggplot(data_long,
-       aes(time, elfe, group = pid)) + 
-  geom_line(aes(color = dummy_foerderung), alpha =.5) +
-  theme_modern_rc()
+ggplot(data,
+       aes(elfe_t_pre, elfe_t_post, 
+           color = dummy_foerderung)) + 
+  geom_jitter() +
+  stat_smooth()
 
-```
-
-```{r}
-ggplot(data |> 
-         mutate(gain_t = elfe_t_post - elfe_t_pre),
+ggplot(data,
        aes(dummy_foerderung, gain_t)) + 
   geom_sina(aes(color = elfe_t_pre)) + 
   stat_summary(fun.data = mean_sdl, 
@@ -329,26 +367,281 @@ ggplot(data |>
   theme_modern_rc() +
   scale_color_continuous(type = "viridis")
 
+# Single Level Model
+mod_gain_t_homo <- 
+  brm(bf(gain_t ~ dummy_foerderung),
+      family = student(),
+      data = data)
+
+pp_check(mod_gain_t_homo)
+plot(mod_gain_t_homo)
+summary(mod_gain_t_homo)
+hypothesis(mod_gain_t_homo, "dummy_foerderung1 > 0" )
+
+# Fixed Effects Model
+mod_gain_t_homo_fe <- 
+  brm(bf(gain_t ~ dummy_foerderung + class),
+      family = student(),
+      iter = 40000,
+      cores = 4,
+      data = data)
+
+pp_check(mod_gain_t_homo_fe)
+plot(mod_gain_t_homo_fe)
+summary(mod_gain_t_homo_fe)
+hypothesis(mod_gain_t_homo_fe, "dummy_foerderung1 > 0" )
+
+# Random Effects Model
+mod_gain_t_homo_re <- 
+  brm(bf(gain_t ~ dummy_foerderung + (1|class)),
+      family = student(),
+      iter = 40000,
+      cores = 4,
+      data = data)
+
+pp_check(mod_gain_t_homo_re)
+plot(mod_gain_t_homo_re)
+summary(mod_gain_t_homo_re)
+hypothesis(mod_gain_t_homo_re, "dummy_foerderung1 > 0" )
+
+tab_model(mod_gain_t_homo, mod_gain_t_homo_fe, mod_gain_t_homo_re)
+
+
+# Effect Size
+cliffs_delta(gain_t ~ dummy_foerderung, data = data)
 ```
 
-
-## Linear Regression (single level)
-
+### Heteroskedastic Linear Regression (single level)
 ```{r}
-mod_gain_t <- 
-  brm(gain_t ~ dummy_foerderung,
+mod_gain_t_hetero <- 
+  brm(bf(gain_t ~ dummy_foerderung,
+         sigma ~ dummy_foerderung),
       family = student(),
       data = data |> 
          mutate(gain_t = elfe_t_post - elfe_t_pre))
 
-mod_gain_t
+pp_check(mod_gain_t_hetero)
+plot(mod_gain_t_hetero)
 
-plot(mod_gain_t)
+summary(mod_gain_t_hetero)
 
-pd(mod_gain_t)
+pd(mod_gain_t_hetero)
+plot(pd(mod_gain_t_hetero))
+rope(mod_gain_t_hetero, range = c(-.1, .1))
+```
 
-plot(pd(mod_gain_t))
-     
-rope(mod_gain_t, range = c(-.1, .1))
+### Comparison to Homoscedastic Model
+```{r}
+loo_compare(add_criterion(mod_gain_t_homo, "loo"), 
+            add_criterion(mod_gain_t_hetero, "loo"))
+```
 
+Aus Parsimonitätsgründen Homoskedastizität annehmen!
+
+
+
+## Gain sumscore_wv
+```{r}
+ggplot(data,
+       aes(wv_sum_score_pre, wv_sum_score_post, 
+           color = dummy_foerderung)) + 
+  geom_jitter() +
+  stat_smooth()
+
+ggplot(data,
+       aes(dummy_foerderung, gain_sum_wv)) + 
+  geom_sina(aes(color = wv_sum_score_pre)) + 
+  stat_summary(fun.data = mean_sdl, 
+               geom = "errorbar",
+               color = "lightgrey",
+               fun.args = list(mult = 1),
+               width = 0) +
+  stat_summary(fun.data = mean_sdl, 
+               geom = "point",
+               color = "lightgrey") +
+  theme_modern_rc() +
+  scale_color_continuous(type = "viridis")
+
+# Single Level Model
+mod_gain_wv <- 
+  brm(bf(gain_sum_wv ~ dummy_foerderung),
+      family = student(),
+      iter = 40000,
+      cores = 4,
+      data = data)
+
+pp_check(mod_gain_wv)
+plot(mod_gain_wv)
+summary(mod_gain_wv)
+hypothesis(mod_gain_wv, "dummy_foerderung1 > 0" )
+
+# Fixed Effects Model
+mod_gain_wv_homo_fe <- 
+  brm(bf(gain_sum_wv ~ dummy_foerderung + class),
+      family = student(),
+      iter = 40000,
+      cores = 4,
+      data = data)
+
+pp_check(mod_gain_wv_homo_fe)
+plot(mod_gain_wv_homo_fe)
+summary(mod_gain_wv_homo_fe)
+hypothesis(mod_gain_wv_homo_fe, "dummy_foerderung1 > 0" )
+
+# Random Effects Model
+mod_gain_wv_homo_re <- 
+  brm(bf(gain_sum_wv ~ dummy_foerderung + (1|class)),
+      family = student(),
+      iter = 40000,
+      cores = 4,
+      data = data)
+
+pp_check(mod_gain_wv_homo_re)
+plot(mod_gain_wv_homo_re)
+summary(mod_gain_wv_homo_re)
+hypothesis(mod_gain_wv_homo_re, "dummy_foerderung1 > 0" )
+
+# Compare Models
+tab_model(mod_gain_wv, mod_gain_wv_homo_fe, mod_gain_wv_homo_re)
+
+# Effect Size
+cliffs_delta(gain_sum_wv ~ dummy_foerderung, data = data)
+```
+
+
+## Gain sumscore_sv 
+```{r}
+ggplot(data,
+       aes(sv_sum_score_pre, sv_sum_score_post, 
+           color = dummy_foerderung)) + 
+  geom_jitter() +
+  stat_smooth()
+
+ggplot(data,
+       aes(dummy_foerderung, gain_sum_sv)) + 
+  geom_sina(aes(color = sv_sum_score_pre)) + 
+  stat_summary(fun.data = mean_sdl, 
+               geom = "errorbar",
+               color = "lightgrey",
+               fun.args = list(mult = 1),
+               width = 0) +
+  stat_summary(fun.data = mean_sdl, 
+               geom = "point",
+               color = "lightgrey") +
+  theme_modern_rc() +
+  scale_color_continuous(type = "viridis")
+
+# Single Level Model
+mod_gain_sv <- 
+  brm(bf(gain_sum_sv ~ dummy_foerderung),
+      family = student(),
+      iter = 40000,
+      cores = 4,
+      data = data)
+
+pp_check(mod_gain_sv)
+plot(mod_gain_sv)
+summary(mod_gain_sv)
+hypothesis(mod_gain_sv, "dummy_foerderung1 > 0" )
+
+# Fixed Effects Model
+mod_gain_sv_homo_fe <- 
+  brm(bf(gain_sum_sv ~ dummy_foerderung + class),
+      family = student(),
+      iter = 40000,
+      cores = 4,
+      data = data)
+
+pp_check(mod_gain_sv_homo_fe)
+plot(mod_gain_sv_homo_fe)
+summary(mod_gain_sv_homo_fe)
+hypothesis(mod_gain_sv_homo_fe, "dummy_foerderung1 > 0" )
+
+# Random Effects Model
+mod_gain_sv_homo_re <- 
+  brm(bf(gain_sum_sv ~ dummy_foerderung + (1|class)),
+      family = student(),
+      iter = 40000,
+      cores = 4,
+      data = data)
+
+pp_check(mod_gain_sv_homo_re)
+plot(mod_gain_sv_homo_re)
+summary(mod_gain_sv_homo_re)
+hypothesis(mod_gain_sv_homo_re, "dummy_foerderung1 > 0" )
+
+# Compare Models
+tab_model(mod_gain_sv, mod_gain_sv_homo_fe, mod_gain_sv_homo_re)
+
+# Effect Size
+cliffs_delta(gain_sum_sv ~ dummy_foerderung, data = data)
+```
+
+
+## Gain sumscore_tv
+```{r}
+ggplot(data,
+       aes(tv_sum_score_pre, tv_sum_score_post, 
+           color = dummy_foerderung)) + 
+  geom_jitter() +
+  stat_smooth()
+
+ggplot(data,
+       aes(dummy_foerderung, gain_sum_tv)) + 
+  geom_sina(aes(color = tv_sum_score_pre)) + 
+  stat_summary(fun.data = mean_sdl, 
+               geom = "errorbar",
+               color = "lightgrey",
+               fun.args = list(mult = 1),
+               width = 0) +
+  stat_summary(fun.data = mean_sdl, 
+               geom = "point",
+               color = "lightgrey") +
+  theme_modern_rc() +
+  scale_color_continuous(type = "viridis")
+
+# Single Level Model
+mod_gain_tv <- 
+  brm(bf(gain_sum_tv ~ dummy_foerderung),
+      family = student(),
+      iter = 40000,
+      cores = 4,
+      data = data)
+
+pp_check(mod_gain_tv)
+plot(mod_gain_tv)
+summary(mod_gain_tv)
+hypothesis(mod_gain_tv, "dummy_foerderung1 > 0" )
+
+# Fixed Effects Model
+mod_gain_tv_homo_fe <- 
+  brm(bf(gain_sum_tv ~ dummy_foerderung + class),
+      family = student(),
+      iter = 40000,
+      cores = 4,
+      data = data)
+
+pp_check(mod_gain_tv_homo_fe)
+plot(mod_gain_tv_homo_fe)
+summary(mod_gain_tv_homo_fe)
+hypothesis(mod_gain_tv_homo_fe, "dummy_foerderung1 > 0" )
+
+# Random Effects Model
+mod_gain_tv_homo_re <- 
+  brm(bf(gain_sum_tv ~ dummy_foerderung + (1|class)),
+      family = student(),
+      iter = 40000,
+      cores = 4,
+      data = data)
+
+pp_check(mod_gain_tv_homo_re)
+plot(mod_gain_tv_homo_re)
+summary(mod_gain_tv_homo_re)
+hypothesis(mod_gain_tv_homo_re, "dummy_foerderung1 > 0" )
+
+# Compare Models
+tab_model(mod_gain_tv, mod_gain_tv_homo_fe, mod_gain_tv_homo_re)
+
+# Effect Size
+cliffs_delta(gain_sum_tv ~ dummy_foerderung, data = data)
 ```
